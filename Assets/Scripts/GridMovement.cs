@@ -47,12 +47,48 @@ public class GridMovement : MonoBehaviour
 
     public void ComputeAdjacencyLists()
     {
+        //If map changes
         tiles = GameObject.FindGameObjectsWithTag("Tile");
 
         foreach (GameObject tile in tiles)
         {
             Tile t = tile.GetComponent<Tile>();
             t.FindNeighbors(jumpHeight);
+        }
+    }
+
+    public void FindSelectableTiles()
+    {
+        ComputeAdjacencyLists();
+        GetCurrentTile();
+
+        Queue<Tile> process = new Queue<Tile>();
+
+        process.Enqueue(currentTile);
+        currentTile.visited = true;
+        //GetCurrentTile.parent = ?? Left as null
+        //Debug.Log("In search");
+        while (process.Count > 0)
+        {
+            Tile t = process.Dequeue();
+            //Debug.Log("In while");
+            selectibleTiles.Add(t);
+            t.selectable = true;
+
+            if (t.distance < move)
+            {
+                foreach (Tile tile in t.adjacencyList)
+                {
+                    //Debug.Log("In tile");
+                    if (!tile.visited)
+                    {
+                        tile.parent = t;
+                        tile.visited = true;
+                        tile.distance = 1 + t.distance;
+                        process.Enqueue(tile);
+                    }
+                }
+            }
         }
     }
 }

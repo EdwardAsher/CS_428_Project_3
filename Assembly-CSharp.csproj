@@ -63,10 +63,54 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Models\AllStarCharacterLibrary\Scripts\AbilityClasses.cs" />
+    <Compile Include="Assets\Models\AllStarCharacterLibrary\Scripts\AbilityObject.cs" />
+    <Compile Include="Assets\Models\AllStarCharacterLibrary\Scripts\ASCLBasicController.cs" />
+    <Compile Include="Assets\Models\AllStarCharacterLibrary\Scripts\Billboard2.cs" />
+    <Compile Include="Assets\Models\AllStarCharacterLibrary\Scripts\CamAngle.cs" />
+    <Compile Include="Assets\Models\AllStarCharacterLibrary\Scripts\CamAngleObject.cs" />
+    <Compile Include="Assets\Models\AllStarCharacterLibrary\Scripts\CamGoal.cs" />
+    <Compile Include="Assets\Models\AllStarCharacterLibrary\Scripts\CamScript.cs" />
+    <Compile Include="Assets\Models\AllStarCharacterLibrary\Scripts\CamTarget.cs" />
+    <Compile Include="Assets\Models\AllStarCharacterLibrary\Scripts\CamZone.cs" />
+    <Compile Include="Assets\Models\AllStarCharacterLibrary\Scripts\EnemyController.cs" />
+    <Compile Include="Assets\Models\AllStarCharacterLibrary\Scripts\EnemyRadar.cs" />
+    <Compile Include="Assets\Models\AllStarCharacterLibrary\Scripts\EnvTarget.cs" />
+    <Compile Include="Assets\Models\AllStarCharacterLibrary\Scripts\envVars.cs" />
+    <Compile Include="Assets\Models\AllStarCharacterLibrary\Scripts\Game.cs" />
+    <Compile Include="Assets\Models\AllStarCharacterLibrary\Scripts\Hit.cs" />
+    <Compile Include="Assets\Models\AllStarCharacterLibrary\Scripts\killGameObject.cs" />
+    <Compile Include="Assets\Models\AllStarCharacterLibrary\Scripts\killParticle.cs" />
+    <Compile Include="Assets\Models\AllStarCharacterLibrary\Scripts\Mecanim\BasicHitCheck.cs" />
+    <Compile Include="Assets\Models\AllStarCharacterLibrary\Scripts\Mecanim\EnemyHitCheck.cs" />
+    <Compile Include="Assets\Models\AllStarCharacterLibrary\Scripts\Mecanim\ExitPain.cs" />
+    <Compile Include="Assets\Models\AllStarCharacterLibrary\Scripts\Mecanim\ExitState.cs" />
+    <Compile Include="Assets\Models\AllStarCharacterLibrary\Scripts\Mecanim\RootMotionOff.cs" />
+    <Compile Include="Assets\Models\AllStarCharacterLibrary\Scripts\Mecanim\TestingRoot.cs" />
+    <Compile Include="Assets\Models\AllStarCharacterLibrary\Scripts\MouseOrbit.cs" />
+    <Compile Include="Assets\Models\AllStarCharacterLibrary\Scripts\PickUp.cs" />
+    <Compile Include="Assets\Models\AllStarCharacterLibrary\Scripts\RadarDot.cs" />
+    <Compile Include="Assets\Models\AllStarCharacterLibrary\Scripts\Stats.cs" />
+    <Compile Include="Assets\Models\AllStarCharacterLibrary\Scripts\TrajectoryTarget.cs" />
+    <Compile Include="Assets\Models\AllStarCharacterLibrary\Scripts\Zone.cs" />
+    <Compile Include="Assets\Models\fantasySpider\FSP_ContinuousRotation.cs" />
+    <Compile Include="Assets\Models\HuaYao Forest Spirit\CommodityProgect\CommodityShowScript\UIObjRotation.cs" />
+    <Compile Include="Assets\Models\HuaYao Forest Spirit\RTTTest\GaussianBlurEffect.cs" />
+    <Compile Include="Assets\Models\HuaYao Forest Spirit\RTTTest\RTTSave.cs" />
+    <Compile Include="Assets\Models\Skeleton\Script\Character\PlayerController.cs" />
+    <Compile Include="Assets\Models\Troll_Сannibal\Script\TrolControl.cs" />
     <Compile Include="Assets\Scripts\GridMovement.cs" />
     <Compile Include="Assets\Scripts\MenuOptions.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Tile.cs" />
+    <None Include="Assets\Models\Ancient Guard\readMe.txt" />
+    <None Include="Assets\Models\Lady Pirate\readMe.txt" />
+    <None Include="Assets\Models\Mutant1\Stand\Standard_Two_Sided .shader" />
+    <None Include="Assets\Models\HuaYao Forest Spirit\RTTTest\Bright.shader" />
+    <None Include="Assets\Models\HuaYao Forest Spirit\RTTTest\GaussianBlur.shader" />
+    <None Include="Assets\Models\Troll_Сannibal\readme.txt" />
+    <None Include="Assets\Models\Chaos Knight Warrior\readMe.txt" />
+    <None Include="Assets\Models\Scifi Fighter\readMe.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>Z:/Unity/CS_428_Project_3/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

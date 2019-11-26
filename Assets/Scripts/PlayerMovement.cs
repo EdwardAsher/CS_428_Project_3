@@ -13,6 +13,6 @@ public class PlayerMovement : GridMovement
     // Update is called once per frame
     void Update()
     {
-        
+        FindSelectableTiles();
     }
 }

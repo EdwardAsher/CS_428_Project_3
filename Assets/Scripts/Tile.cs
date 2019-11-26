@@ -57,16 +57,19 @@ public class Tile : MonoBehaviour
     public void FindNeighbors(float jumpHeight)
     {
         Reset();
-
-        CheckTile(Vector3.forward, jumpHeight);
-        CheckTile(-Vector3.forward, jumpHeight);
-        CheckTile(Vector3.right, jumpHeight);
-        CheckTile(-Vector3.right, jumpHeight);
+        Vector3 temp = new Vector3();
+        temp.z = 0.1f;
+        CheckTile(temp, jumpHeight);
+        CheckTile(-temp, jumpHeight);
+        temp.z = 0;
+        temp.x = 0.1f;
+        CheckTile(temp, jumpHeight);
+        CheckTile(-temp, jumpHeight);
     }
 
     public void CheckTile(Vector3 direction, float jumpHeight)
     {
-        Vector3 halfExtents = new Vector3(0.25f, (0.25f+jumpHeight/2.0f), 0.25f);
+        Vector3 halfExtents = new Vector3(0.1f, (0.1f+jumpHeight/2.0f), 0.1f);
         Collider[] colliders = Physics.OverlapBox(transform.position + direction, halfExtents);
 
         foreach (Collider item in colliders)
