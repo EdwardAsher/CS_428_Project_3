@@ -103,6 +103,7 @@
     <Compile Include="Assets\Scripts\MenuOptions.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Tile.cs" />
+    <Compile Include="Assets\Scripts\TurnManager.cs" />
     <None Include="Assets\Models\Ancient Guard\readMe.txt" />
     <None Include="Assets\Models\Lady Pirate\readMe.txt" />
     <None Include="Assets\Models\Mutant1\Stand\Standard_Two_Sided .shader" />

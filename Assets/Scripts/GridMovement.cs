@@ -1,35 +1,49 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GridMovement : MonoBehaviour
 {
+    public bool turn = false;
+
     List<Tile> selectibleTiles = new List<Tile>();
     GameObject[] tiles;
 
     Stack<Tile> path = new Stack<Tile>();
     Tile currentTile;
 
+    public bool moving = false;
     public int move = 5;
     public float jumpHeight = 2;
     public float moveSpeed = 2;
+    public float jumpVelocity = 4.5f;
 
     Vector3 velocity = new Vector3();
     Vector3 heading = new Vector3();
 
     float halfHeight = 0;
 
+    //Change to enumerator
+    bool fallingDown = false;
+    bool jumpingUp = false;
+    bool movingEdge = false;
+    Vector3 jumpTarget = new Vector3();
+
     protected void Init()
     {
         tiles = GameObject.FindGameObjectsWithTag("Tile");
 
         halfHeight = GetComponent<Collider>().bounds.extents.y;
+
+        TurnManager.AddUnit(this);
     }
 
     public void GetCurrentTile()
     {
         currentTile = GetTargetTile(gameObject);
         currentTile.currentTile = true;
+        //currentTile.occupied = true;
     }
 
     public Tile GetTargetTile(GameObject target)
@@ -80,7 +94,7 @@ public class GridMovement : MonoBehaviour
                 foreach (Tile tile in t.adjacencyList)
                 {
                     //Debug.Log("In tile");
-                    if (!tile.visited)
+                    if (!tile.visited && tile.occupied == false)
                     {
                         tile.parent = t;
                         tile.visited = true;
@@ -90,5 +104,201 @@ public class GridMovement : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void MovetoTile (Tile tile)
+    {
+        path.Clear();
+        tile.target = true;
+        moving = true;
+
+        Tile next = tile;
+        while (next != null)
+        {
+            path.Push(next);
+            next = next.parent;
+        }
+    }
+
+    public void Move()
+    {
+        if (path.Count > 0)
+        {
+            Tile t = path.Peek();
+            Vector3 target = t.transform.position;
+
+            target.y += halfHeight + t.GetComponent<Collider>().bounds.extents.y;
+            //Debug.Log(Vector3.Distance(transform.position, target));
+            //Debug.Log("Target: " + target);
+            //Debug.Log("Transform: " + transform.position);
+
+            if (Vector3.Distance(transform.position, target) >= 0.02f)
+            {
+                bool jump = transform.position.y != target.y;
+
+                if (jump)
+                {
+                    //Debug.Log("Jump!");
+                    Jump(target);
+                }
+                else
+                {
+                    CalculateHeading(target);
+                    SetHorizontalVelocity();
+                }
+               
+                //Add anim here
+                transform.forward = heading;
+                transform.position += velocity * Time.deltaTime;
+            }
+            else
+            {
+                transform.position = target;
+                path.Pop();
+            }
+
+        }
+        else
+        {
+            RemoveSelectableTiles();
+            moving = false;
+
+            //Add actions
+            TurnManager.EndTurn();
+        }
+    }
+
+    protected void RemoveSelectableTiles()
+    {
+        if (currentTile != null)
+        {
+            currentTile.currentTile = false;
+            //currentTile.occupied = false;
+            currentTile = null;
+        }
+        foreach(Tile tile in selectibleTiles)
+        {
+            tile.Reset();
+        }
+
+        selectibleTiles.Clear();
+    }
+
+    void CalculateHeading(Vector3 target)
+    {
+        heading = target - transform.position;
+        heading.Normalize();
+    }
+    
+    void SetHorizontalVelocity()
+    {
+        velocity = heading * moveSpeed;
+    }
+
+    void Jump(Vector3 target)
+    {
+        if (fallingDown)
+        {
+            FallDownward(target);
+        }
+        else if (jumpingUp)
+        {
+            JumpUpward(target);
+        }
+        else if (movingEdge)
+        {
+            MoveToEdge();
+        }
+        else
+        {
+            PrepareJump(target);
+        }
+    }
+
+    void PrepareJump(Vector3 target)
+    {
+        float targetY = target.y;
+
+        target.y = transform.position.y;
+
+        CalculateHeading(target);
+        //Debug.Log("transform pos:" + transform.position.y);
+        //Debug.Log("targetY" + targetY);
+        if (transform.position.y > targetY)
+        {
+            fallingDown = false;
+            jumpingUp = false;
+            movingEdge = true;
+            //Debug.Log("Here");
+            jumpTarget = transform.position + (target - transform.position) / 2.0f;
+        }
+        else
+        {
+            fallingDown = false;
+            jumpingUp = true;
+            movingEdge = false;
+
+            velocity = heading * moveSpeed / 3.0f;
+
+            float difference = targetY - transform.position.y;
+
+            velocity.y = jumpVelocity * (0.5f + difference / 2.0f);
+        }
+    }
+
+    void FallDownward(Vector3 target)
+    {
+        velocity += Physics.gravity * Time.deltaTime;
+
+        if (transform.position.y <= target.y)
+        {
+            fallingDown = false;
+            jumpingUp = false;
+            movingEdge = false;
+
+            Vector3 p = transform.position;
+            p.y = target.y;
+
+            transform.position = p;
+
+            velocity = new Vector3();
+        }
+    }
+
+    void JumpUpward(Vector3 target)
+    {
+        velocity += Physics.gravity * Time.deltaTime;
+
+        if (transform.position.y > target.y)
+        {
+            jumpingUp = false;
+            fallingDown = true;
+        }
+    }
+
+    void MoveToEdge()
+    {
+        if (Vector3.Distance(transform.position, jumpTarget) >= 0.8f)
+        {
+            SetHorizontalVelocity();
+        }
+        else
+        {
+            movingEdge = false;
+            fallingDown = true;
+
+            velocity /= 10.0f;
+            velocity.y = 1.5f;
+        }
+    }
+
+    public void BeginTurn()
+    {
+        turn = true;
+    }
+
+    public void EndTurn()
+    {
+        turn = false;
     }
 }

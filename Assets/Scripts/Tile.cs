@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
+    public bool occupied = false;
     public bool walkable = true;
     public bool currentTile = false;
     public bool target = false;
     public bool selectable = false;
+    public float neighborDistance = 0.125f;
 
     public List<Tile> adjacencyList = new List<Tile>();
 
@@ -44,14 +46,29 @@ public class Tile : MonoBehaviour
 
     public void Reset()
     {
-        walkable = true;
-        currentTile = false;
-        target = false;
-        selectable = false;
+        /*if (currentTile == true)
+        {
+            walkable = true;
+            currentTile = true;
+            target = false;
+            selectable = false;
 
-        visited = false;
-        parent = null;
-        distance = 0;
+            visited = false;
+            parent = null;
+            distance = 0;
+        }
+        else
+        {*/
+            walkable = true;
+            currentTile = false;
+            target = false;
+            selectable = false;
+
+            visited = false;
+            parent = null;
+            distance = 0;
+        //}
+       
     }
 
     public void FindNeighbors(float jumpHeight)
@@ -70,6 +87,7 @@ public class Tile : MonoBehaviour
     public void CheckTile(Vector3 direction, float jumpHeight)
     {
         Vector3 halfExtents = new Vector3(0.1f, (0.1f+jumpHeight/2.0f), 0.1f);
+        //Debug.DrawRay(transform.position, direction, Color.white);
         Collider[] colliders = Physics.OverlapBox(transform.position + direction, halfExtents);
 
         foreach (Collider item in colliders)
@@ -80,10 +98,25 @@ public class Tile : MonoBehaviour
                 RaycastHit hit;
 
                 //Check if something above
-                if (!Physics.Raycast(tile.transform.position, Vector3.up, out hit, 1))
+                Vector3 temp = new Vector3();
+                temp = Vector3.up;
+                temp.y = 0.3f;
+                var hitCheck = Physics.Raycast(tile.transform.position, temp, out hit, 1);
+                Color color = hitCheck ? Color.green : Color.red;
+                Debug.DrawRay(transform.position, temp, color);
+                if (Physics.Raycast(tile.transform.position, temp, out hit, 1))
                 {
+                    //Debug.Log(hit.collider.gameObject.name);
+                }
+                if (tile.occupied == false)
+                {
+                    //Debug.Log(hit.collider.gameObject.name);
+                    if (tile.occupied)
+                    {
+                        Debug.Log("OCCUPIED");
+                    }
                     adjacencyList.Add(tile);
-                } 
+                }
             }
         }
 
