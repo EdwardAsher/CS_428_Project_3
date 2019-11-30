@@ -1,2 +1,4 @@
 Base path: 'C:/Program Files/Unity/Hub/Editor/2019.2.12f1/Editor/Data', plugins path 'C:/Program Files/Unity/Hub/Editor/2019.2.12f1/Editor/Data/PlaybackEngines'
 Cmd: initializeCompiler
+Cmd: compileSnippet
+  api=4 type=0 insize=8559 outsize=1678 kw=UNITY_PASS_META EDITOR_VISUALIZATION pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_NO_SCREENSPACE_SHADOWS UNITY_PBS_USE_BRDF3 UNITY_HARDWARE_TIER1 UNITY_COLORSPACE_GAMMA UNITY_LIGHTMAP_FULL_HDR ok=1

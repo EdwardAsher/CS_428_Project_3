@@ -63,6 +63,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Holograms\Support\AniCrane\AnimationSpeed.cs" />
+    <Compile Include="Assets\Holograms\Support\Fitbox\Fitbox.cs" />
+    <Compile Include="Assets\Holograms\Support\Fitbox\Interpolator.cs" />
+    <Compile Include="Assets\Holograms\Support\Spatial Mapping\SpatialMapping.cs" />
+    <Compile Include="Assets\Holograms\Support\Underworld\UnderworldReset.cs" />
+    <Compile Include="Assets\Holograms\Support\Underworld\UnderworldSound.cs" />
     <Compile Include="Assets\Models\AllStarCharacterLibrary\Scripts\AbilityClasses.cs" />
     <Compile Include="Assets\Models\AllStarCharacterLibrary\Scripts\AbilityObject.cs" />
     <Compile Include="Assets\Models\AllStarCharacterLibrary\Scripts\ASCLBasicController.cs" />
@@ -99,11 +105,18 @@
     <Compile Include="Assets\Models\HuaYao Forest Spirit\RTTTest\RTTSave.cs" />
     <Compile Include="Assets\Models\Skeleton\Script\Character\PlayerController.cs" />
     <Compile Include="Assets\Models\Troll_Сannibal\Script\TrolControl.cs" />
+    <Compile Include="Assets\Scripts\GazeGestureManager.cs" />
     <Compile Include="Assets\Scripts\GridMovement.cs" />
+    <Compile Include="Assets\Scripts\HitTarget.cs" />
     <Compile Include="Assets\Scripts\MenuOptions.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\SpeechManager.cs" />
+    <Compile Include="Assets\Scripts\SphereCommands.cs" />
+    <Compile Include="Assets\Scripts\SphereSounds.cs" />
+    <Compile Include="Assets\Scripts\TapToPlaceParent.cs" />
     <Compile Include="Assets\Scripts\Tile.cs" />
     <Compile Include="Assets\Scripts\TurnManager.cs" />
+    <Compile Include="Assets\Scripts\WorldCursor.cs" />
     <None Include="Assets\Models\Ancient Guard\readMe.txt" />
     <None Include="Assets\Models\Lady Pirate\readMe.txt" />
     <None Include="Assets\Models\Mutant1\Stand\Standard_Two_Sided .shader" />

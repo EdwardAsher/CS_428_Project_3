@@ -69,4 +69,32 @@ public class PlayerMovement : GridMovement
             }
         }
     }
+    // Called by GazeGestureManager when the user performs a Select gesture
+    void OnSelect()
+    {
+        // If the sphere has no Rigidbody component, add one to enable physics.
+        /*if (!this.GetComponent<Rigidbody>())
+        {
+            var rigidbody = this.gameObject.AddComponent<Rigidbody>();
+            rigidbody.collisionDetectionMode = CollisionDetectionMode.Continuous;
+        }*/
+        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        var headPosition = Camera.main.transform.position;
+        var gazeDirection = Camera.main.transform.forward;
+        if (Physics.Raycast(headPosition, gazeDirection, out hit))
+        {
+            if (hit.collider.tag == "Tile")
+            {
+                Tile t = hit.collider.GetComponent<Tile>();
+
+                if (t.selectable)
+                {
+                    //move target
+
+                    MovetoTile(t);
+                }
+            }
+        }
+    }
 }

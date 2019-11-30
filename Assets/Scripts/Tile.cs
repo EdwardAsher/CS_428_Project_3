@@ -86,7 +86,7 @@ public class Tile : MonoBehaviour
 
     public void CheckTile(Vector3 direction, float jumpHeight)
     {
-        Vector3 halfExtents = new Vector3(0.1f, (0.1f+jumpHeight/2.0f), 0.1f);
+        Vector3 halfExtents = new Vector3(0.1f, (0.1f+jumpHeight/4.0f), 0.1f);
         //Debug.DrawRay(transform.position, direction, Color.white);
         Collider[] colliders = Physics.OverlapBox(transform.position + direction, halfExtents);
 

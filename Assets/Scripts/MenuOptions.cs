@@ -5,7 +5,7 @@ using UnityEditor;
 
 public class MenuOptions : MonoBehaviour
 {
-    [MenuItem("Tools/Assign Tile Material")]
+    /*[MenuItem("Tools/Assign Tile Material")]
     public static void AssignTileMaterial()
     {
         GameObject[] tiles = GameObject.FindGameObjectsWithTag("Tile");
@@ -26,5 +26,5 @@ public class MenuOptions : MonoBehaviour
         {
             t.AddComponent<Tile>();
         }
-    }
+    }*/
 }
