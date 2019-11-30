@@ -1,0 +1,13 @@
+﻿  Building GameAssembly.dll with MsvcWinRtToolChain
+  	Msvc Install Version: 15.0
+  	Msvc Install SDK Directory: C:\Program Files (x86)\Windows Kits\10
+  	Msvc Linker Path: C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\bin\HostX64\x86\link.exe
+  	Msvc Compiler Path: C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\bin\HostX64\x86\cl.exe
+  
+  	Output directory: H:\Unity\CS_428_Project_3\Builds\Ver_0.0.3\build\bin\Win32\Release
+  	Cache directory: H:\Unity\CS_428_Project_3\Builds\Ver_0.0.3\build\obj\il2cppOutputProject\Win32\Release
+  ObjectFiles: 181 of which compiled: 0
+  Total compilation time: 140 milliseconds.
+  Creating library H:\Unity\CS_428_Project_3\Builds\Ver_0.0.3\build\obj\il2cppOutputProject\Win32\Release\linkresult_94969E7F9073CFD08D137A0EE3DF7AE0\GameAssembly.lib and object H:\Unity\CS_428_Project_3\Builds\Ver_0.0.3\build\obj\il2cppOutputProject\Win32\Release\linkresult_94969E7F9073CFD08D137A0EE3DF7AE0\GameAssembly.exp
+  Total link time: 3055 milliseconds.
+  Cleaned up 1 object files.

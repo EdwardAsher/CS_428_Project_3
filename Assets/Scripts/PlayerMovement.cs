@@ -1,13 +1,38 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.WSA.Input;
 
 public class PlayerMovement : GridMovement
 {
+    public static PlayerMovement Instance { get; private set; }
+    public GameObject FocusedObject { get; private set; }
+    GestureRecognizer recognizer;
+
+    public GameObject cube;
     // Start is called before the first frame update
     void Start()
     {
+        //Instance = this;
+        recognizer = new GestureRecognizer();
+        recognizer.Tapped += (args) =>
+        {
+            //FocusedObject.SendMessageUpwards("Test", SendMessageOptions.DontRequireReceiver);
+            //Test();
+            //FocusedObject.SendMessageUpwards("Test2", SendMessageOptions.DontRequireReceiver);
+            // Send an OnSelect message to the focused object and its ancestors.
+            if (FocusedObject != null)
+            {
+                if (FocusedObject.tag == "Tile")
+                {
+                    OnSelect(FocusedObject.gameObject);
+                }
+                //FocusedObject.SendMessageUpwards("OnSelect", SendMessageOptions.DontRequireReceiver);
+            }
+        };
+        recognizer.StartCapturingGestures();
         Init();
+        cube.SetActive(false);
     }
 
     // Update is called once per frame
@@ -32,7 +57,8 @@ public class PlayerMovement : GridMovement
         if (!moving)
         {
             FindSelectableTiles();
-            CheckMouse();
+            //CheckMouse();
+            CheckGesture();
         }
         else
         {
@@ -70,7 +96,7 @@ public class PlayerMovement : GridMovement
         }
     }
     // Called by GazeGestureManager when the user performs a Select gesture
-    void OnSelect()
+    void OnSelect(GameObject gaze)
     {
         // If the sphere has no Rigidbody component, add one to enable physics.
         /*if (!this.GetComponent<Rigidbody>())
@@ -79,22 +105,96 @@ public class PlayerMovement : GridMovement
             rigidbody.collisionDetectionMode = CollisionDetectionMode.Continuous;
         }*/
         //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
+        //GestureRecognizer recognizer;
+        //recognizer = new GestureRecognizer();
+        //RaycastHit hit;
+        //var headPosition = Camera.main.transform.position;
+        //var gazeDirection = Camera.main.transform.forward;
+        //if (Physics.Raycast(headPosition, gazeDirection, out hit))
+        //{
+        //    if (hit.collider.tag == "Tile")
+        //    {
+        //        Tile t = hit.collider.GetComponent<Tile>();
+        //if (!turn)
+        //{
+        /*if (cube.activeSelf == true)
+        {
+            cube.SetActive(false);
+        }
+        else
+        {
+            cube.SetActive(true);
+        }*/
+        //return;
+        //}
+        //if (!moving)
+        //{
+        /*if (cube.activeSelf == true)
+        {
+            cube.SetActive(false);
+        }
+        else
+        {
+            cube.SetActive(true);
+        }*/
+        //if (gaze.tag == "Tile")
+        //{
+        Tile t = gaze.GetComponent<Tile>();
+        if (t.selectable)
+        {
+            //move target and reset gestures
+            recognizer.CancelGestures();
+            recognizer.StartCapturingGestures();
+            MovetoTile(t);
+        }
+        //}
+
+        //}
+
+    }
+        //}
+    //}
+    void Test()
+    {
+        if (cube.activeSelf == true)
+        {
+            cube.SetActive(false);
+        }
+        else
+        {
+            cube.SetActive(true);
+        }
+        
+    }
+
+    void CheckGesture()
+    {
+        GameObject oldFocusObject = FocusedObject;
+
+        // Do a raycast into the world based on the user's
+        // head position and orientation.
         var headPosition = Camera.main.transform.position;
         var gazeDirection = Camera.main.transform.forward;
-        if (Physics.Raycast(headPosition, gazeDirection, out hit))
+
+        RaycastHit hitInfo;
+        if (Physics.Raycast(headPosition, gazeDirection, out hitInfo))
         {
-            if (hit.collider.tag == "Tile")
-            {
-                Tile t = hit.collider.GetComponent<Tile>();
+            // If the raycast hit a hologram, use that as the focused object.
+            FocusedObject = hitInfo.collider.gameObject;
+        }
+        else
+        {
+            // If the raycast did not hit a hologram, clear the focused object.
+            FocusedObject = null;
+        }
 
-                if (t.selectable)
-                {
-                    //move target
-
-                    MovetoTile(t);
-                }
-            }
+        // If the focused object changed this frame,
+        // start detecting fresh gestures again.
+        if (FocusedObject != oldFocusObject)
+        {
+            recognizer.CancelGestures();
+            recognizer.StartCapturingGestures();
         }
     }
+
 }

@@ -19,9 +19,12 @@ public class GazeGestureManager : MonoBehaviour
         recognizer = new GestureRecognizer();
         recognizer.Tapped += (args) =>
         {
+            FocusedObject.SendMessageUpwards("Test", SendMessageOptions.DontRequireReceiver);
+            //FocusedObject.SendMessageUpwards("Test2", SendMessageOptions.DontRequireReceiver);
             // Send an OnSelect message to the focused object and its ancestors.
             if (FocusedObject != null)
             {
+                //if (FocusedObject.tag == "Tile")
                 FocusedObject.SendMessageUpwards("OnSelect", SendMessageOptions.DontRequireReceiver);
             }
         };

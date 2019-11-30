@@ -1,0 +1,10 @@
+﻿  pch.cpp
+  App.cpp
+  Main.cpp
+  UnityGenerated.cpp
+h:\unity\cs_428_project_3\builds\ver_0.0.2\cs_428_project_3\app.cpp(26): warning C4973: 'Windows::UI::ViewManagement::IApplicationView2::SuppressSystemOverlays::set': marked as deprecated
+  h:\unity\cs_428_project_3\builds\ver_0.0.2\cs_428_project_3\app.cpp(26): note: Message: 'Use the TryEnterFullScreen method and IsFullScreenMode property instead of SuppressSystemOverlays. For more info, see MSDN.'
+  Generating code
+  All 160 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  CS_428_Project_3.vcxproj -> H:\Unity\CS_428_Project_3\Builds\Ver_0.0.2\build\bin\Win32\Release\CS_428_Project_3.exe

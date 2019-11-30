@@ -1,0 +1,204 @@
+﻿  Building GameAssembly.dll with MsvcWinRtToolChain
+  	Msvc Install Version: 15.0
+  	Msvc Install SDK Directory: C:\Program Files (x86)\Windows Kits\10
+  	Msvc Linker Path: C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\bin\HostX64\x86\link.exe
+  	Msvc Compiler Path: C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\bin\HostX64\x86\cl.exe
+  
+  	Output directory: H:\Unity\CS_428_Project_3\Builds\Ver_0.0.2\build\bin\Win32\Release
+  	Cache directory: H:\Unity\CS_428_Project_3\Builds\Ver_0.0.2\build\obj\il2cppOutputProject\Win32\Release
+  mscorlib_CodeGen.c
+  Il2CppMetadataUsage.c
+  Il2CppTypeDefinitions.c
+  mscorlib9.cpp
+  Il2CppInvokerTable.cpp
+  Il2CppCompilerCalculateTypeValues1.cpp
+  Il2CppCompilerCalculateTypeValues.cpp
+  mscorlib4.cpp
+  mscorlib3.cpp
+  Il2CppGenericMethodPointerTable.cpp
+  Il2CppAttributes.cpp
+  UnityEngine.UI.cpp
+  mscorlib11.cpp
+  mscorlib7.cpp
+  mscorlib12.cpp
+  mscorlib16.cpp
+  mscorlib6.cpp
+  Generics.cpp
+  mscorlib10.cpp
+  mscorlib.cpp
+  mscorlib2.cpp
+  mscorlib1.cpp
+  UnityEngine.UI1.cpp
+  UnityEngine.CoreModule.cpp
+  mscorlib15.cpp
+  UnityEngine.UI2.cpp
+  GenericMethods.cpp
+  GenericMethods3.cpp
+  mscorlib8.cpp
+  System.cpp
+  UnityEngine.CoreModule1.cpp
+  mscorlib13.cpp
+  mscorlib14.cpp
+  Generics1.cpp
+  Generics12.cpp
+  Generics11.cpp
+  Generics5.cpp
+  Il2CppGenericMethodDefinitions.c
+  Generics3.cpp
+  GenericMethods2.cpp
+  GenericMethods1.cpp
+  Assembly-CSharp.cpp
+  Generics8.cpp
+  Generics7.cpp
+  Generics4.cpp
+  Il2CppGenericMethodTable.c
+  Generics10.cpp
+  Generics6.cpp
+  GenericMethods4.cpp
+  mscorlib5.cpp
+  Generics2.cpp
+  I18N.Rare.cpp
+  Il2CppGenericClassTable.c
+  Il2CppGenericInstDefinitions.c
+  System1.cpp
+  UnityEngine.IMGUIModule.cpp
+  Generics9.cpp
+  UnityEngine.VRModule.cpp
+  mscorlib17.cpp
+  Unity.XR.WindowsMR.cpp
+  I18N.CJK.cpp
+  I18N.Rare1.cpp
+  UnresolvedVirtualCallStubs.cpp
+  I18N.West.cpp
+  UnityEngine.AndroidJNIModule.cpp
+  UnityEngine.XRModule.cpp
+  UnityEngine.CoreModule_CodeGen.c
+  UnityEngine.UI_CodeGen.c
+  I18N.cpp
+  Il2CppCompilerCalculateTypeValuesTable.cpp
+  I18N.Other.cpp
+  UnityEngine.UI3.cpp
+  UnityEngine.TerrainModule.cpp
+  I18N.MidEast.cpp
+  UnityEngine.AnimationModule.cpp
+  UnityEngine.PhysicsModule.cpp
+  UnityEngine.TextRenderingModule.cpp
+  char-conversions.cpp
+  UnityEngine.UIModule.cpp
+  Il2CppInteropDataTable.cpp
+  System_CodeGen.c
+  UnityEngine.Physics2DModule.cpp
+  UnityEngine.SharedInternalsModule.cpp
+  UnityEngine.InputLegacyModule.cpp
+  deflate.c
+  Mono.Security.cpp
+  UnityEngine.UIElementsModule.cpp
+  UnityEngine.AudioModule.cpp
+  UnityEngine.VideoModule.cpp
+  UnityEngine.ParticleSystemModule.cpp
+  UnityEngine.TilemapModule.cpp
+  UnityEngine.VRModule_CodeGen.c
+  I18N.Rare_CodeGen.c
+  Assembly-CSharp_CodeGen.c
+  UnityEngine.UnityWebRequestModule.cpp
+  UnityEngine.UnityAnalyticsModule.cpp
+  UnityEngine.IMGUIModule_CodeGen.c
+  System.Configuration.cpp
+  I18N.CJK_CodeGen.c
+  UnityEngine.AndroidJNIModule_CodeGen.c
+  inflate.c
+  Unity.XR.WindowsMR_CodeGen.c
+  UnityEngine.VFXModule.cpp
+  trees.c
+  UnityEngine.XRModule_CodeGen.c
+  UnityEngine.InputModule.cpp
+  xamarin_getifaddrs.c
+  I18N_CodeGen.c
+  Generics13.cpp
+  UnityEngine.AnimationModule_CodeGen.c
+  UnityEngine.PhysicsModule_CodeGen.c
+  UnityEngine.AssetBundleModule.cpp
+  I18N.West_CodeGen.c
+  UnityEngine.UIModule_CodeGen.c
+  infback.c
+  gzread.c
+  UnityEngine.AIModule.cpp
+  UnityEngine.CoreModule2.cpp
+  System.Core.cpp
+  I18N.Other_CodeGen.c
+  gzwrite.c
+  UnityEngine.DirectorModule.cpp
+  UnityEngine.SharedInternalsModule_CodeGen.c
+  UnityEngine.TextRenderingModule_CodeGen.c
+  gzlib.c
+  UnityEngine.Physics2DModule_CodeGen.c
+  il2cpp-api.cpp
+  UnityEngine.AudioModule_CodeGen.c
+  UnityEngine.TerrainModule_CodeGen.c
+  crc32.c
+  inftrees.c
+  inffast.c
+  UnityEngine.InputLegacyModule_CodeGen.c
+  System.Core_CodeGen.c
+  I18N.MidEast_CodeGen.c
+  UnityEngine.TilemapModule_CodeGen.c
+  UnityEngine.VideoModule_CodeGen.c
+  zutil.c
+  System.Configuration_CodeGen.c
+  UnityEngine.UIElementsModule_CodeGen.c
+  UnityEngine.ImageConversionModule.cpp
+  UnityEngine.ParticleSystemModule_CodeGen.c
+  Il2CppCodeRegistration.cpp
+  System.Xml.cpp
+  UnityEngine.UnityAnalyticsModule_CodeGen.c
+  UnityEngine.VFXModule_CodeGen.c
+  adler32.c
+  UnityEngine.GridModule.cpp
+  Mono.Security_CodeGen.c
+  UnityEngine.InputModule_CodeGen.c
+  uncompr.c
+  compress.c
+  UnityEngine.UnityWebRequestModule_CodeGen.c
+  Il2CppReversePInvokeWrapperTable.cpp
+  UnityEngine.AIModule_CodeGen.c
+  UnityAdsStubs.cpp
+  UnityEngine.DirectorModule_CodeGen.c
+  krait_signal_handler.c
+  Il2CppMetadataRegistration.c
+  UnityEngine.cpp
+  UnityEngine.ImageConversionModule_CodeGen.c
+  Lump_libil2cpp_utils.cpp
+  UnityEngine.GridModule_CodeGen.c
+  Lump_libil2cpp_metadata.cpp
+  System.Xml_CodeGen.c
+  gzclose.c
+  gc.c
+  il2cpp-benchmark-support.cpp
+  Lump_libil2cpp_icalls.cpp
+  UnityEngine.AssetBundleModule_CodeGen.c
+  UnityEngine_CodeGen.c
+  Lump_libil2cpp_mono-runtime.cpp
+  Lump_libil2cpp_mono.cpp
+  Il2CppGenericComDefinitions.cpp
+  Lump_libil2cpp_gc.cpp
+  Lump_libil2cpp_debugger.cpp
+  Lump_libil2cpp_vm-utils.cpp
+  Lump_libil2cpp_codegen.cpp
+  il2cpp-runtime-stats.cpp
+  Lump_libil2cpp_os.cpp
+  Lump_libil2cpp_vm.cpp
+  ObjectFiles: 181 of which compiled: 181
+  	Time Compile: 10783 milliseconds mscorlib5.cpp
+  	Time Compile: 8362 milliseconds Lump_libil2cpp_os.cpp
+  	Time Compile: 7326 milliseconds Lump_libil2cpp_vm.cpp
+  	Time Compile: 6492 milliseconds System.cpp
+  	Time Compile: 5268 milliseconds Assembly-CSharp.cpp
+  	Time Compile: 5132 milliseconds Lump_libil2cpp_icalls.cpp
+  	Time Compile: 5061 milliseconds Il2CppAttributes.cpp
+  	Time Compile: 3910 milliseconds UnityEngine.UI.cpp
+  	Time Compile: 3895 milliseconds mscorlib3.cpp
+  	Time Compile: 3825 milliseconds Generics8.cpp
+  Total compilation time: 34278 milliseconds.
+  Creating library H:\Unity\CS_428_Project_3\Builds\Ver_0.0.2\build\obj\il2cppOutputProject\Win32\Release\linkresult_CBF2372C5ACBDA069799CDC68D3D0CAA\GameAssembly.lib and object H:\Unity\CS_428_Project_3\Builds\Ver_0.0.2\build\obj\il2cppOutputProject\Win32\Release\linkresult_CBF2372C5ACBDA069799CDC68D3D0CAA\GameAssembly.exp
+  Total link time: 2462 milliseconds.
+  Cleaned up 2 object files.

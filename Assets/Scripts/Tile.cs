@@ -17,6 +17,8 @@ public class Tile : MonoBehaviour
     public Tile parent = null;
     public int distance = 0;
 
+    //public GameObject cube;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -120,5 +122,18 @@ public class Tile : MonoBehaviour
             }
         }
 
+    }
+
+    void Test2()
+    {
+        /*if (cube.activeSelf == true)
+        {
+            cube.SetActive(false);
+        }
+        else
+        {
+            cube.SetActive(true);
+        }*/
+        SendMessageUpwards("OnSelect", this, SendMessageOptions.DontRequireReceiver);
     }
 }
