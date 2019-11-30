@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Tile
   - NPC
+  - 1st Team
+  - 2nd Team
   layers:
   - Default
   - TransparentFX

@@ -133,6 +133,8 @@ struct TypeU5BU5D_t7FE623A666B49176DE123306221193E888A12F5F;
 struct Version_tDBE6876C59B6F56D4F8CAA03851177ABC6FE0DFD;
 // System.Void
 struct Void_t22962CB4C05B1D89B55A6E1139F0E87A90987017;
+// UnityEngine.Windows.WebCam.VideoCapture/OnVideoModeStartedCallback
+struct OnVideoModeStartedCallback_t02A8F71807C17735B0CA19F94FF41F6E5DD7260A;
 // UnityEngine.Windows.WebCam.VideoCapture/OnVideoModeStoppedCallback
 struct OnVideoModeStoppedCallback_tE545030F7C008F72708C7647CC3F464FB4B2CA80;
 // UnityEngine.YieldInstruction
@@ -157,6 +159,7 @@ IL2CPP_EXTERN_C const uint32_t APIUpdaterRuntimeHelpers_GetMovedFromAttributeDat
 IL2CPP_EXTERN_C const uint32_t APIUpdaterRuntimeHelpers_GetObsoleteTypeRedirection_m43E0605422153F402426F8959BC2E8C65A69F597_MetadataUsageId;
 IL2CPP_EXTERN_C const uint32_t GenericStack__ctor_m0659B84DB6B093AF1F01F566686C510DDEEAE848_MetadataUsageId;
 IL2CPP_EXTERN_C const uint32_t MathfInternal__cctor_m885D4921B8E928763E7ABB4466659665780F860F_MetadataUsageId;
+IL2CPP_EXTERN_C const uint32_t OnVideoModeStartedCallback_BeginInvoke_m95E5682FF37266B911974288C4E9090187B416C0_MetadataUsageId;
 IL2CPP_EXTERN_C const uint32_t OnVideoModeStoppedCallback_BeginInvoke_m21579FF978236D09DEB3AC1F508A4EF4A04A8FAB_MetadataUsageId;
 IL2CPP_EXTERN_C const uint32_t TypeInferenceRuleAttribute__ctor_m389751AED6740F401AC8DFACD5914C13AB24D8A6_MetadataUsageId;
 struct CultureInfo_t345AC6924134F039ED9A11F3E03F8E91B6A3225F_marshaled_com;
@@ -1616,6 +1619,15 @@ public:
 };
 
 
+// UnityEngine.Windows.WebCam.VideoCapture_OnVideoModeStartedCallback
+struct  OnVideoModeStartedCallback_t02A8F71807C17735B0CA19F94FF41F6E5DD7260A  : public MulticastDelegate_t
+{
+public:
+
+public:
+};
+
+
 // UnityEngine.Windows.WebCam.VideoCapture_OnVideoModeStoppedCallback
 struct  OnVideoModeStoppedCallback_tE545030F7C008F72708C7647CC3F464FB4B2CA80  : public MulticastDelegate_t
 {
@@ -1741,6 +1753,125 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float Interlocked_CompareExchange_m2C6E1F976D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TypeInferenceRuleAttribute__ctor_m34920F979AA071F4973CEEEF6F91B5B6A53E5765 (TypeInferenceRuleAttribute_tEB3BA6FDE6D6817FD33E2620200007EB9730214B * __this, String_t* ___rule0, const RuntimeMethod* method);
 // System.Void System.Attribute::.ctor()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Attribute__ctor_m45CAD4B01265CC84CC5A84F62EE2DBE85DE89EC0 (Attribute_tF048C13FB3C8CFCC53F82290E4A3F621089F9A74 * __this, const RuntimeMethod* method);
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+IL2CPP_EXTERN_C  void DelegatePInvokeWrapper_OnVideoModeStartedCallback_t02A8F71807C17735B0CA19F94FF41F6E5DD7260A (OnVideoModeStartedCallback_t02A8F71807C17735B0CA19F94FF41F6E5DD7260A * __this, VideoCaptureResult_t68444D73B1DD8952CF970D983DFF25517C7C516A  ___result0, const RuntimeMethod* method)
+{
+	typedef void (DEFAULT_CALL *PInvokeFunc)(VideoCaptureResult_t68444D73B1DD8952CF970D983DFF25517C7C516A );
+	PInvokeFunc il2cppPInvokeFunc = reinterpret_cast<PInvokeFunc>(il2cpp_codegen_get_method_pointer(((RuntimeDelegate*)__this)->method));
+
+	// Native function invocation
+	il2cppPInvokeFunc(___result0);
+
+}
+// System.Void UnityEngine.Windows.WebCam.VideoCapture_OnVideoModeStartedCallback::.ctor(System.Object,System.IntPtr)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OnVideoModeStartedCallback__ctor_m1753A0D7909741085AEC31818DDFB57D59EBE539 (OnVideoModeStartedCallback_t02A8F71807C17735B0CA19F94FF41F6E5DD7260A * __this, RuntimeObject * ___object0, intptr_t ___method1, const RuntimeMethod* method)
+{
+	__this->set_method_ptr_0(il2cpp_codegen_get_method_pointer((RuntimeMethod*)___method1));
+	__this->set_method_3(___method1);
+	__this->set_m_target_2(___object0);
+}
+// System.Void UnityEngine.Windows.WebCam.VideoCapture_OnVideoModeStartedCallback::Invoke(UnityEngine.Windows.WebCam.VideoCapture_VideoCaptureResult)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OnVideoModeStartedCallback_Invoke_mB9A2828F520201F753009139BDB2C193A38687A0 (OnVideoModeStartedCallback_t02A8F71807C17735B0CA19F94FF41F6E5DD7260A * __this, VideoCaptureResult_t68444D73B1DD8952CF970D983DFF25517C7C516A  ___result0, const RuntimeMethod* method)
+{
+	DelegateU5BU5D_tDFCDEE2A6322F96C0FE49AF47E9ADB8C4B294E86* delegateArrayToInvoke = __this->get_delegates_11();
+	Delegate_t** delegatesToInvoke;
+	il2cpp_array_size_t length;
+	if (delegateArrayToInvoke != NULL)
+	{
+		length = delegateArrayToInvoke->max_length;
+		delegatesToInvoke = reinterpret_cast<Delegate_t**>(delegateArrayToInvoke->GetAddressAtUnchecked(0));
+	}
+	else
+	{
+		length = 1;
+		delegatesToInvoke = reinterpret_cast<Delegate_t**>(&__this);
+	}
+
+	for (il2cpp_array_size_t i = 0; i < length; i++)
+	{
+		Delegate_t* currentDelegate = delegatesToInvoke[i];
+		Il2CppMethodPointer targetMethodPointer = currentDelegate->get_method_ptr_0();
+		RuntimeObject* targetThis = currentDelegate->get_m_target_2();
+		RuntimeMethod* targetMethod = (RuntimeMethod*)(currentDelegate->get_method_3());
+		if (!il2cpp_codegen_method_is_virtual(targetMethod))
+		{
+			il2cpp_codegen_raise_execution_engine_exception_if_method_is_not_found(targetMethod);
+		}
+		bool ___methodIsStatic = MethodIsStatic(targetMethod);
+		int ___parameterCount = il2cpp_codegen_method_parameter_count(targetMethod);
+		if (___methodIsStatic)
+		{
+			if (___parameterCount == 1)
+			{
+				// open
+				typedef void (*FunctionPointerType) (VideoCaptureResult_t68444D73B1DD8952CF970D983DFF25517C7C516A , const RuntimeMethod*);
+				((FunctionPointerType)targetMethodPointer)(___result0, targetMethod);
+			}
+			else
+			{
+				// closed
+				typedef void (*FunctionPointerType) (void*, VideoCaptureResult_t68444D73B1DD8952CF970D983DFF25517C7C516A , const RuntimeMethod*);
+				((FunctionPointerType)targetMethodPointer)(targetThis, ___result0, targetMethod);
+			}
+		}
+		else
+		{
+			// closed
+			if (il2cpp_codegen_method_is_virtual(targetMethod) && !il2cpp_codegen_object_is_of_sealed_type(targetThis) && il2cpp_codegen_delegate_has_invoker((Il2CppDelegate*)__this))
+			{
+				if (targetThis == NULL)
+				{
+					typedef void (*FunctionPointerType) (VideoCaptureResult_t68444D73B1DD8952CF970D983DFF25517C7C516A , const RuntimeMethod*);
+					((FunctionPointerType)targetMethodPointer)(___result0, targetMethod);
+				}
+				else if (il2cpp_codegen_method_is_generic_instance(targetMethod))
+				{
+					if (il2cpp_codegen_method_is_interface_method(targetMethod))
+						GenericInterfaceActionInvoker1< VideoCaptureResult_t68444D73B1DD8952CF970D983DFF25517C7C516A  >::Invoke(targetMethod, targetThis, ___result0);
+					else
+						GenericVirtActionInvoker1< VideoCaptureResult_t68444D73B1DD8952CF970D983DFF25517C7C516A  >::Invoke(targetMethod, targetThis, ___result0);
+				}
+				else
+				{
+					if (il2cpp_codegen_method_is_interface_method(targetMethod))
+						InterfaceActionInvoker1< VideoCaptureResult_t68444D73B1DD8952CF970D983DFF25517C7C516A  >::Invoke(il2cpp_codegen_method_get_slot(targetMethod), il2cpp_codegen_method_get_declaring_type(targetMethod), targetThis, ___result0);
+					else
+						VirtActionInvoker1< VideoCaptureResult_t68444D73B1DD8952CF970D983DFF25517C7C516A  >::Invoke(il2cpp_codegen_method_get_slot(targetMethod), targetThis, ___result0);
+				}
+			}
+			else
+			{
+				typedef void (*FunctionPointerType) (void*, VideoCaptureResult_t68444D73B1DD8952CF970D983DFF25517C7C516A , const RuntimeMethod*);
+				((FunctionPointerType)targetMethodPointer)(targetThis, ___result0, targetMethod);
+			}
+		}
+	}
+}
+// System.IAsyncResult UnityEngine.Windows.WebCam.VideoCapture_OnVideoModeStartedCallback::BeginInvoke(UnityEngine.Windows.WebCam.VideoCapture_VideoCaptureResult,System.AsyncCallback,System.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* OnVideoModeStartedCallback_BeginInvoke_m95E5682FF37266B911974288C4E9090187B416C0 (OnVideoModeStartedCallback_t02A8F71807C17735B0CA19F94FF41F6E5DD7260A * __this, VideoCaptureResult_t68444D73B1DD8952CF970D983DFF25517C7C516A  ___result0, AsyncCallback_t3F3DA3BEDAEE81DD1D24125DF8EB30E85EE14DA4 * ___callback1, RuntimeObject * ___object2, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_method (OnVideoModeStartedCallback_BeginInvoke_m95E5682FF37266B911974288C4E9090187B416C0_MetadataUsageId);
+		s_Il2CppMethodInitialized = true;
+	}
+	void *__d_args[2] = {0};
+	__d_args[0] = Box(VideoCaptureResult_t68444D73B1DD8952CF970D983DFF25517C7C516A_il2cpp_TypeInfo_var, &___result0);
+	return (RuntimeObject*)il2cpp_codegen_delegate_begin_invoke((RuntimeDelegate*)__this, __d_args, (RuntimeDelegate*)___callback1, (RuntimeObject*)___object2);
+}
+// System.Void UnityEngine.Windows.WebCam.VideoCapture_OnVideoModeStartedCallback::EndInvoke(System.IAsyncResult)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OnVideoModeStartedCallback_EndInvoke_mFF236A689DD47097F9CACB33E48B8D8410B8507D (OnVideoModeStartedCallback_t02A8F71807C17735B0CA19F94FF41F6E5DD7260A * __this, RuntimeObject* ___result0, const RuntimeMethod* method)
+{
+	il2cpp_codegen_delegate_end_invoke((Il2CppAsyncResult*) ___result0, 0);
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
 #ifdef __clang__
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Winvalid-offsetof"

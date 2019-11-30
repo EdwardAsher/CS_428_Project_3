@@ -772,6 +772,7 @@ IL2CPP_EXTERN_C const uint32_t Decoder_GetChars_m6FDAB407BC990656BCB7C8B21420C8B
 IL2CPP_EXTERN_C const uint32_t Decoder_Reset_m51BD73696D6661DD77D15393D545739011F67C9F_MetadataUsageId;
 IL2CPP_EXTERN_C const uint32_t Decoder_SerializeDecoder_m9581A0FC542BF413F536FEE49E8973E88D3B840E_MetadataUsageId;
 IL2CPP_EXTERN_C const uint32_t EvidenceEnumerator_MoveNext_mC9D2715D6026F22D7A0CE13DB1EC9E1EBAFFC0A6_MetadataUsageId;
+IL2CPP_EXTERN_C const uint32_t EvidenceEnumerator_Reset_m7C34F282CC975B8A002C37B26605B31997CEA37C_MetadataUsageId;
 IL2CPP_EXTERN_C const uint32_t EvidenceEnumerator_get_Current_m375A68A8EB0A859A10B82241A0A12BDD1904432B_MetadataUsageId;
 IL2CPP_EXTERN_C const uint32_t Evidence_GetEnumerator_m03EB4131E670C6BAFA8C155ABCD98637699AA43E_MetadataUsageId;
 IL2CPP_EXTERN_C const uint32_t HashAlgorithm_ComputeHash_m18501D3068AEBEB5FA83EA72BE780E371DB0C122_MetadataUsageId;
@@ -12642,6 +12643,56 @@ IL_0047:
 	{
 		bool L_10 = V_0;
 		return L_10;
+	}
+}
+// System.Void System.Security.Policy.Evidence_EvidenceEnumerator::Reset()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EvidenceEnumerator_Reset_m7C34F282CC975B8A002C37B26605B31997CEA37C (EvidenceEnumerator_t6E9E6856C90081E4B1A731097D6FE1D14EC680B3 * __this, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_method (EvidenceEnumerator_Reset_m7C34F282CC975B8A002C37B26605B31997CEA37C_MetadataUsageId);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		RuntimeObject* L_0 = __this->get_hostEnum_1();
+		if (!L_0)
+		{
+			goto IL_0021;
+		}
+	}
+	{
+		RuntimeObject* L_1 = __this->get_hostEnum_1();
+		NullCheck(L_1);
+		InterfaceActionInvoker0::Invoke(2 /* System.Void System.Collections.IEnumerator::Reset() */, IEnumerator_t8789118187258CC88B77AFAC6315B5AF87D3E18A_il2cpp_TypeInfo_var, L_1);
+		RuntimeObject* L_2 = __this->get_hostEnum_1();
+		__this->set_currentEnum_0(L_2);
+		goto IL_002d;
+	}
+
+IL_0021:
+	{
+		RuntimeObject* L_3 = __this->get_assemblyEnum_2();
+		__this->set_currentEnum_0(L_3);
+	}
+
+IL_002d:
+	{
+		RuntimeObject* L_4 = __this->get_assemblyEnum_2();
+		if (!L_4)
+		{
+			goto IL_0040;
+		}
+	}
+	{
+		RuntimeObject* L_5 = __this->get_assemblyEnum_2();
+		NullCheck(L_5);
+		InterfaceActionInvoker0::Invoke(2 /* System.Void System.Collections.IEnumerator::Reset() */, IEnumerator_t8789118187258CC88B77AFAC6315B5AF87D3E18A_il2cpp_TypeInfo_var, L_5);
+	}
+
+IL_0040:
+	{
+		return;
 	}
 }
 // System.Object System.Security.Policy.Evidence_EvidenceEnumerator::get_Current()

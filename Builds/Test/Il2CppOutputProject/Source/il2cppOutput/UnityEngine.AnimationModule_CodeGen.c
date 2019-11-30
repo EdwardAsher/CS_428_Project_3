@@ -186,11 +186,13 @@ extern void Enumerator__ctor_mE90274D68218FACBF1EC2BBB177244F49E446E11 ();
 extern void Enumerator_get_Current_m7E017EDF8269D883AB26739301E19787C385F315 ();
 // 0x00000053 System.Boolean UnityEngine.Animation_Enumerator::MoveNext()
 extern void Enumerator_MoveNext_mC4528CDA0A6BA22B421D8ABB26F0C1843B710195 ();
-// 0x00000054 System.Void UnityEngine.AnimationState::.ctor()
+// 0x00000054 System.Void UnityEngine.Animation_Enumerator::Reset()
+extern void Enumerator_Reset_mB6DD93470BE4B0948C32BE2919B76788E5C1C1D3 ();
+// 0x00000055 System.Void UnityEngine.AnimationState::.ctor()
 extern void AnimationState__ctor_mD763623A91BDF7F4AA95507A977F815103284E06 ();
-// 0x00000055 System.Void UnityEngine.AnimationState::set_speed(System.Single)
+// 0x00000056 System.Void UnityEngine.AnimationState::set_speed(System.Single)
 extern void AnimationState_set_speed_m858CD8CC55491E8FA1017462296628C63AD86DD0 ();
-static Il2CppMethodPointer s_methodPointers[85] = 
+static Il2CppMethodPointer s_methodPointers[86] = 
 {
 	StateMachineBehaviour__ctor_m60289315ADCB494227D881EEFA6C4458BACA79DB,
 	StateMachineBehaviour_OnStateEnter_mAB25325C96611ADDF93038EC6792EC4F76AEF4EE,
@@ -275,10 +277,11 @@ static Il2CppMethodPointer s_methodPointers[85] =
 	Enumerator__ctor_mE90274D68218FACBF1EC2BBB177244F49E446E11,
 	Enumerator_get_Current_m7E017EDF8269D883AB26739301E19787C385F315,
 	Enumerator_MoveNext_mC4528CDA0A6BA22B421D8ABB26F0C1843B710195,
+	Enumerator_Reset_mB6DD93470BE4B0948C32BE2919B76788E5C1C1D3,
 	AnimationState__ctor_mD763623A91BDF7F4AA95507A977F815103284E06,
 	AnimationState_set_speed_m858CD8CC55491E8FA1017462296628C63AD86DD0,
 };
-static const int32_t s_InvokerIndices[85] = 
+static const int32_t s_InvokerIndices[86] = 
 {
 	23,
 	1376,
@@ -364,13 +367,14 @@ static const int32_t s_InvokerIndices[85] =
 	14,
 	95,
 	23,
+	23,
 	294,
 };
 extern const Il2CppCodeGenModule g_UnityEngine_AnimationModuleCodeGenModule;
 const Il2CppCodeGenModule g_UnityEngine_AnimationModuleCodeGenModule = 
 {
 	"UnityEngine.AnimationModule.dll",
-	85,
+	86,
 	s_methodPointers,
 	s_InvokerIndices,
 	0,

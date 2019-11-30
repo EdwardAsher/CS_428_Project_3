@@ -23373,6 +23373,14 @@ IL_0017:
 		return (bool)1;
 	}
 }
+// System.Void System.Security.Cryptography.OidEnumerator::Reset()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OidEnumerator_Reset_m5006C3B1283711E2BDDEA6C25FDF93BBB900195E (OidEnumerator_tC2DB288576C575B69F7934274DDD8A5868CEF97C * __this, const RuntimeMethod* method)
+{
+	{
+		__this->set_m_current_1((-1));
+		return;
+	}
+}
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif

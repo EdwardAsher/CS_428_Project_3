@@ -2757,6 +2757,14 @@ IL_002a:
 		return L_5;
 	}
 }
+// System.Void UnityEngine.Animation_Enumerator::Reset()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Enumerator_Reset_mB6DD93470BE4B0948C32BE2919B76788E5C1C1D3 (Enumerator_t6F97AECE1A160A668D8D8798607BE29B1D8CD92C * __this, const RuntimeMethod* method)
+{
+	{
+		__this->set_m_CurrentIndex_1((-1));
+		return;
+	}
+}
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif

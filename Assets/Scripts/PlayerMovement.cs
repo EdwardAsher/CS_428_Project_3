@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.WSA.Input;
+using UnityEngine.UI;
 
 public class PlayerMovement : GridMovement
 {
@@ -10,6 +11,8 @@ public class PlayerMovement : GridMovement
     GestureRecognizer recognizer;
 
     public GameObject cube;
+    public Text debug;
+    private int i = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,12 +30,17 @@ public class PlayerMovement : GridMovement
                 {
                     OnSelect(FocusedObject.gameObject);
                 }
+                else if (FocusedObject.tag == "NPC")
+                {
+                    CheckTarget(FocusedObject.gameObject);
+                }
                 //FocusedObject.SendMessageUpwards("OnSelect", SendMessageOptions.DontRequireReceiver);
             }
         };
-        recognizer.StartCapturingGestures();
+        //recognizer.StartCapturingGestures();
         Init();
         cube.SetActive(false);
+        target = null;
     }
 
     // Update is called once per frame
@@ -46,6 +54,7 @@ public class PlayerMovement : GridMovement
             tile = hit.collider.GetComponent<Tile>();
             if (tile != null)
             {
+                tile.tileOccupant = this.tag;
                 tile.occupied = true;
             }
             
@@ -57,7 +66,10 @@ public class PlayerMovement : GridMovement
         if (!moving)
         {
             FindSelectableTiles();
-            //CheckMouse();
+            //Comment CheckMouse out if running on HoloLens
+            CheckMouse();
+            //recognizer.CancelGestures();
+            recognizer.StartCapturingGestures();
             CheckGesture();
         }
         else
@@ -65,6 +77,7 @@ public class PlayerMovement : GridMovement
             if (tile != null)
             {
                 tile.occupied = false;
+                tile.tileOccupant = null;
             }
             
             Move();
@@ -92,9 +105,51 @@ public class PlayerMovement : GridMovement
                         MovetoTile(t);
                     }
                 }
+                if (hit.collider.tag == "NPC")
+                {
+                    GameObject unit = hit.collider.gameObject;
+                    //bool reachable = CheckBelow();
+                    target = unit;
+                    
+                    Tile t = GetTargetTile(unit);
+
+                    if (AttackNearbyTiles())
+                    {
+                        //move target
+                        //target = unit;
+                        MovetoTile(t);
+                        //Attack(unit);
+                    }
+                    else
+                    {
+                        target = null;
+                    }
+                }
             }
         }
     }
+
+    void CheckTarget(GameObject tar)
+    {
+        //GameObject unit = hit.collider.gameObject;
+        //bool reachable = CheckBelow();
+        target = tar;
+
+        Tile t = GetTargetTile(tar);
+
+        if (AttackNearbyTiles())
+        {
+            //move target
+            //target = unit;
+            MovetoTile(t);
+            //Attack(unit);
+        }
+        else
+        {
+            target = null;
+        }
+    }
+
     // Called by GazeGestureManager when the user performs a Select gesture
     void OnSelect(GameObject gaze)
     {
@@ -139,14 +194,20 @@ public class PlayerMovement : GridMovement
         }*/
         //if (gaze.tag == "Tile")
         //{
+        //debug.text = "entries for: " + gameObject.name + " " + i; 
+        if (moving)
+        {
+            return;
+        }
         Tile t = gaze.GetComponent<Tile>();
         if (t.selectable)
         {
             //move target and reset gestures
-            recognizer.CancelGestures();
-            recognizer.StartCapturingGestures();
+            //recognizer.CancelGestures();
+            //recognizer.StartCapturingGestures();
             MovetoTile(t);
         }
+        recognizer.CancelGestures();
         //}
 
         //}
@@ -167,7 +228,7 @@ public class PlayerMovement : GridMovement
         
     }
 
-    void CheckGesture()
+    private void CheckGesture()
     {
         GameObject oldFocusObject = FocusedObject;
 
@@ -197,4 +258,8 @@ public class PlayerMovement : GridMovement
         }
     }
 
+    bool CheckBelow()
+    {
+        return true;
+    }
 }

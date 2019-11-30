@@ -17,6 +17,8 @@ public class Tile : MonoBehaviour
     public Tile parent = null;
     public int distance = 0;
 
+    public string tileOccupant = null;
+
     //public GameObject cube;
 
     // Start is called before the first frame update
@@ -105,6 +107,12 @@ public class Tile : MonoBehaviour
                 temp.y = 0.3f;
                 var hitCheck = Physics.Raycast(tile.transform.position, temp, out hit, 1);
                 Color color = hitCheck ? Color.green : Color.red;
+                if (hit.collider != null)
+                {
+                    //Debug.Log(hit.collider.name);
+                    //tileOccupant = hit.collider.tag;
+                }
+                
                 Debug.DrawRay(transform.position, temp, color);
                 if (Physics.Raycast(tile.transform.position, temp, out hit, 1))
                 {

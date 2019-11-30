@@ -20400,7 +20400,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool CustomYieldInstruction_MoveNext_m7EA6BAA
 {
 	bool V_0 = false;
 	{
-		bool L_0 = VirtFuncInvoker0< bool >::Invoke(6 /* System.Boolean UnityEngine.CustomYieldInstruction::get_keepWaiting() */, __this);
+		bool L_0 = VirtFuncInvoker0< bool >::Invoke(7 /* System.Boolean UnityEngine.CustomYieldInstruction::get_keepWaiting() */, __this);
 		V_0 = L_0;
 		goto IL_000d;
 	}
@@ -20409,6 +20409,13 @@ IL_000d:
 	{
 		bool L_1 = V_0;
 		return L_1;
+	}
+}
+// System.Void UnityEngine.CustomYieldInstruction::Reset()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void CustomYieldInstruction_Reset_m9B3349022DFDDA3A059F14D199F2408725727290 (CustomYieldInstruction_t819BB0973AFF22766749FF087B8AEFEAF3C2CB7D * __this, const RuntimeMethod* method)
+{
+	{
+		return;
 	}
 }
 #ifdef __clang__

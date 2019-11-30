@@ -30,6 +30,8 @@ public class GridMovement : MonoBehaviour
     bool movingEdge = false;
     Vector3 jumpTarget = new Vector3();
 
+    public GameObject target = null;
+
     protected void Init()
     {
         tiles = GameObject.FindGameObjectsWithTag("Tile");
@@ -71,6 +73,7 @@ public class GridMovement : MonoBehaviour
         }
     }
 
+    //Called by PlayerMovement
     public void FindSelectableTiles()
     {
         ComputeAdjacencyLists();
@@ -94,7 +97,7 @@ public class GridMovement : MonoBehaviour
                 foreach (Tile tile in t.adjacencyList)
                 {
                     //Debug.Log("In tile");
-                    if (!tile.visited && tile.occupied == false)
+                    if (!tile.visited && tile.tileOccupant != this.tag)
                     {
                         tile.parent = t;
                         tile.visited = true;
@@ -104,6 +107,55 @@ public class GridMovement : MonoBehaviour
                 }
             }
         }
+    }
+
+    public bool AttackNearbyTiles()
+    {
+        //ComputeAdjacencyLists();
+        RemoveSelectableTiles();
+        GetCurrentTile();
+        
+        Tile targetTile = GetTargetTile(target);
+        Debug.Log(targetTile.name);
+        bool targetFound = false;
+        
+        Queue<Tile> process = new Queue<Tile>();
+
+        process.Enqueue(currentTile);
+        currentTile.visited = true;
+        //GetCurrentTile.parent = ?? Left as null
+        //Debug.Log("In search");
+        while (process.Count > 0)
+        {
+            Tile t = process.Dequeue();
+            //Debug.Log("In while");
+            //selectibleTiles.Add(t);
+            //t.selectable = true;
+
+            if (t.distance < move)
+            {
+                foreach (Tile tile in t.adjacencyList)
+                {
+                    //Debug.Log("In tile");
+                    
+                    if (!tile.visited)
+                    {
+                        if (tile == targetTile)
+                        {
+                            targetFound = true;
+                            Debug.Log("Target Found");
+                            //return true;
+                        }
+                        tile.parent = t;
+                        tile.visited = true;
+                        tile.distance = 1 + t.distance;
+                        process.Enqueue(tile);
+                    }
+                }
+            }
+            
+        }
+        return targetFound;
     }
 
     public void MovetoTile (Tile tile)
@@ -122,7 +174,17 @@ public class GridMovement : MonoBehaviour
 
     public void Move()
     {
-        if (path.Count > 0)
+        int pathSize = 0;
+        Debug.Log(path.Count);
+        if (target != null)
+        {
+            pathSize = path.Count - 1;
+        }
+        else
+        {
+            pathSize = path.Count;
+        }
+        if (pathSize > 0)
         {
             Tile t = path.Peek();
             Vector3 target = t.transform.position;
@@ -141,7 +203,7 @@ public class GridMovement : MonoBehaviour
                     //Debug.Log("Jump!");
                     Jump(target);
                 }
-                else
+                //else
                 {
                     CalculateHeading(target);
                     SetHorizontalVelocity();
@@ -164,6 +226,10 @@ public class GridMovement : MonoBehaviour
             moving = false;
 
             //Add actions
+            if (target!=null)
+            {
+                Attack(target);
+            }
             TurnManager.EndTurn();
         }
     }
@@ -300,5 +366,11 @@ public class GridMovement : MonoBehaviour
     public void EndTurn()
     {
         turn = false;
+    }
+
+    public void Attack(GameObject unit)
+    {
+        unit.SetActive(false);
+        TurnManager.RemoveUnit(this);
     }
 }
