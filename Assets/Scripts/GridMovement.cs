@@ -67,8 +67,17 @@ public class GridMovement : MonoBehaviour
     {
         RaycastHit hit;
         Tile tile = null;
+        Debug.Log("TargetTile: " + -Vector3.up);
+        var hitCheck = Physics.Raycast(target.transform.position, -Vector3.up, out hit, 1);
+        Color color = hitCheck ? Color.green : Color.red;
+        if (hit.collider != null)
+        {
+            //Debug.Log(hit.collider.name);
+            //tileOccupant = hit.collider.tag;
+        }
 
-        if (Physics.Raycast(this.transform.position, -Vector3.up, out hit, 1))
+        Debug.DrawRay(transform.position, -Vector3.up, color);
+        if (Physics.Raycast(this.transform.position, -Vector3.up/2, out hit, 1))
         {
             Debug.Log("hit");
             tile = hit.collider.GetComponent<Tile>();
