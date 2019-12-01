@@ -1,4 +1,8 @@
-﻿using System;
+﻿/*
+  Tutorial For Grid movement from https://www.youtube.com/watch?v=cX_KrK8RQ2o
+  Modified by Edward Reyes
+ */
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,6 +25,8 @@ public class GridMovement : MonoBehaviour
 
     Vector3 velocity = new Vector3();
     Vector3 heading = new Vector3();
+    //Vector3 rotation = new Vector3();
+    Quaternion rotation = new Quaternion();
 
     float halfHeight = 0;
 
@@ -194,13 +200,13 @@ public class GridMovement : MonoBehaviour
         {
             Tile t = path.Peek();
             Vector3 target = t.transform.position;
-
+            Debug.Log(this.gameObject.transform.localRotation);
             target.y += halfHeight + t.GetComponent<Collider>().bounds.extents.y;
             //Debug.Log(Vector3.Distance(transform.position, target));
             //Debug.Log("Target: " + target);
             //Debug.Log("Transform: " + transform.position);
 
-            if (Vector3.Distance(transform.position, target) >= 0.02f)
+            if (Vector3.Distance(transform.position, target) >= 0.1f)
             {
                 bool jump = transform.position.y != target.y;
 
@@ -214,20 +220,28 @@ public class GridMovement : MonoBehaviour
                     CalculateHeading(target);
                     SetHorizontalVelocity();
                 }
-               
+
                 //Add anim here
                 transform.forward = heading;
                 transform.position += velocity * Time.deltaTime;
+                //rotation = transform.rotation;
+                Debug.Log(rotation);
             }
             else
             {
                 transform.position = target;
                 path.Pop();
+                //transform.rotation = rotation;
             }
 
         }
         else
         {
+            /*transform.eulerAngles = new Vector3(
+            transform.eulerAngles.x,
+            transform.eulerAngles.y + 180,
+            transform.eulerAngles.z
+);*/
             RemoveSelectableTiles();
             moving = false;
 
@@ -235,14 +249,28 @@ public class GridMovement : MonoBehaviour
             if (target != null)
             {
                 Attack(target);
+                StartCoroutine("EndActions");
             }
             else if (target == null)
             {
                 StartCoroutine("ExtraActions");
             }
-                
-            
+
+
         }
+    }
+
+    IEnumerator EndActions()
+    {
+        //Debug.Log("Testing");
+        //waiting = true;
+        //yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
+        //yield return new WaitUntil(() => decided);
+        //yield return new WaitForSeconds(5f);
+        //waiting = false;
+        yield return null;
+        TurnManager.EndTurn();
+
     }
 
     IEnumerator ExtraActions()
@@ -256,6 +284,7 @@ public class GridMovement : MonoBehaviour
         TurnManager.EndTurn();
 
     }
+
 
     protected void RemoveSelectableTiles()
     {
@@ -307,12 +336,12 @@ public class GridMovement : MonoBehaviour
     void PrepareJump(Vector3 target)
     {
         float targetY = target.y;
-
+        Debug.Log("preparing");
         target.y = transform.position.y;
 
         CalculateHeading(target);
-        //Debug.Log("transform pos:" + transform.position.y);
-        //Debug.Log("targetY" + targetY);
+        Debug.Log("transform pos:" + transform.position.y);
+        Debug.Log("targetY" + targetY);
         if (transform.position.y > targetY)
         {
             fallingDown = false;
@@ -367,6 +396,7 @@ public class GridMovement : MonoBehaviour
 
     void MoveToEdge()
     {
+        Debug.Log("Moving To Edge");
         if (Vector3.Distance(transform.position, jumpTarget) >= 0.8f)
         {
             SetHorizontalVelocity();
@@ -455,6 +485,6 @@ public class GridMovement : MonoBehaviour
     public void Attack(GameObject unit)
     {
         unit.SetActive(false);
-        TurnManager.RemoveUnit(this);
+        TurnManager.RemoveUnit(unit.GetComponent<GridMovement>());
     }
 }

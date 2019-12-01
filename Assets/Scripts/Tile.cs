@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+  Tutorial For Tile movement from https://www.youtube.com/watch?v=cX_KrK8RQ2o
+  Modified by Edward Reyes
+ */
+
 public class Tile : MonoBehaviour
 {
     public bool occupied = false;

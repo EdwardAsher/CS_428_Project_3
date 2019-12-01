@@ -1,4 +1,8 @@
-﻿using UnityEngine;
+﻿/*
+  Tutorial For Gaze Gestures from https://docs.microsoft.com/en-us/windows/mixed-reality/holograms-101e
+  Modified by Edward Reyes
+ */
+using UnityEngine;
 using UnityEngine.XR.WSA.Input;
 
 public class GazeGestureManager : MonoBehaviour

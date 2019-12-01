@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿/*
+  Tutorial For Player movement from https://www.youtube.com/watch?v=cX_KrK8RQ2o
+  Modified by Edward Reyes
+ */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.WSA.Input;
