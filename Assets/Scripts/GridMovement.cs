@@ -32,6 +32,11 @@ public class GridMovement : MonoBehaviour
 
     public GameObject target = null;
 
+    public bool waiting = false;
+    public bool decided = false;
+
+    public List<GameObject> enemiesList = new List<GameObject>();
+
     protected void Init()
     {
         tiles = GameObject.FindGameObjectsWithTag("Tile");
@@ -76,6 +81,7 @@ public class GridMovement : MonoBehaviour
     //Called by PlayerMovement
     public void FindSelectableTiles()
     {
+        decided = false;
         ComputeAdjacencyLists();
         GetCurrentTile();
 
@@ -200,7 +206,7 @@ public class GridMovement : MonoBehaviour
 
                 if (jump)
                 {
-                    //Debug.Log("Jump!");
+                    Debug.Log("Jump!");
                     Jump(target);
                 }
                 //else
@@ -226,12 +232,29 @@ public class GridMovement : MonoBehaviour
             moving = false;
 
             //Add actions
-            if (target!=null)
+            if (target != null)
             {
                 Attack(target);
             }
-            TurnManager.EndTurn();
+            else if (target == null)
+            {
+                StartCoroutine("ExtraActions");
+            }
+                
+            
         }
+    }
+
+    IEnumerator ExtraActions()
+    {
+        Debug.Log("Testing");
+        waiting = true;
+        //yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
+        yield return new WaitUntil(() => decided);
+        //yield return new WaitForSeconds(5f);
+        waiting = false;
+        TurnManager.EndTurn();
+
     }
 
     protected void RemoveSelectableTiles()
@@ -355,6 +378,67 @@ public class GridMovement : MonoBehaviour
 
             velocity /= 10.0f;
             velocity.y = 1.5f;
+        }
+    }
+
+    public void CheckDirections()
+    {
+        Vector3 temp = new Vector3();
+        temp.z = 0.1f;
+        LookAround(temp, jumpHeight);
+        LookAround(-temp, jumpHeight);
+        temp.z = 0;
+        temp.x = 0.1f;
+        LookAround(temp, jumpHeight);
+        LookAround(-temp, jumpHeight);
+    }
+
+    void LookAround(Vector3 direction, float jumpHeight)
+    {
+        Vector3 halfExtents = new Vector3(0.1f, (0.1f + jumpHeight / 4.0f), 0.1f);
+        //Debug.DrawRay(transform.position, direction, Color.white);
+        Collider[] colliders = Physics.OverlapBox(transform.position + direction, halfExtents);
+
+        foreach (Collider item in colliders)
+        {
+            GameObject unit = item.gameObject;
+            if (unit.gameObject.tag != this.gameObject.tag)
+            {
+                Debug.Log("Got a live one!");
+                enemiesList.Add(unit);
+            }
+            /*if (tile != null)
+            {
+                RaycastHit hit;
+
+                //Check if something above
+                Vector3 temp = new Vector3();
+                temp = Vector3.up;
+                temp.y = 0.3f;
+                var hitCheck = Physics.Raycast(tile.transform.position, temp, out hit, 1);
+                Color color = hitCheck ? Color.green : Color.red;
+                if (hit.collider != null)
+                {
+                    //Debug.Log(hit.collider.name);
+                    //tileOccupant = hit.collider.tag;
+                }
+
+                Debug.DrawRay(transform.position, temp, color);
+                if (Physics.Raycast(tile.transform.position, temp, out hit, 1))
+                {
+                    //Debug.Log(hit.collider.gameObject.name);
+                }
+                if (tile.occupied == true)
+                {
+                    //Debug.Log(hit.collider.gameObject.name);
+                    if (tile.occupied)
+                    {
+                        Debug.Log("OCCUPIED");
+                    }
+                    enemiesList.Add(this.gameObject);
+                }
+            }*/
+
         }
     }
 

@@ -8,8 +8,8 @@
   	Cache directory: H:\Unity\CS_428_Project_3\Builds\Test\build\obj\il2cppOutputProject\Win32\Release
   Assembly-CSharp.cpp
   ObjectFiles: 181 of which compiled: 1
-  	Time Compile: 1930 milliseconds Assembly-CSharp.cpp
-  Total compilation time: 2085 milliseconds.
-  Creating library H:\Unity\CS_428_Project_3\Builds\Test\build\obj\il2cppOutputProject\Win32\Release\linkresult_5BCFDF4EA7D39393F044216E7E207ECC\GameAssembly.lib and object H:\Unity\CS_428_Project_3\Builds\Test\build\obj\il2cppOutputProject\Win32\Release\linkresult_5BCFDF4EA7D39393F044216E7E207ECC\GameAssembly.exp
-  Total link time: 2694 milliseconds.
-  Cleaned up 3 object files.
+  	Time Compile: 1990 milliseconds Assembly-CSharp.cpp
+  Total compilation time: 2149 milliseconds.
+  Creating library H:\Unity\CS_428_Project_3\Builds\Test\build\obj\il2cppOutputProject\Win32\Release\linkresult_F612DF9EAC78EA1192114DFDD13ACDCA\GameAssembly.lib and object H:\Unity\CS_428_Project_3\Builds\Test\build\obj\il2cppOutputProject\Win32\Release\linkresult_F612DF9EAC78EA1192114DFDD13ACDCA\GameAssembly.exp
+  Total link time: 2730 milliseconds.
+  Cleaned up 4 object files.

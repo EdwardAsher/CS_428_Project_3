@@ -8,6 +8,8 @@ TagManager:
   - NPC
   - 1st Team
   - 2nd Team
+  - Attack_Button
+  - Wait_Button
   layers:
   - Default
   - TransparentFX

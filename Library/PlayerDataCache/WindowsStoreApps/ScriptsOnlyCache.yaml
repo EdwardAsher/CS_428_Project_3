@@ -39,6 +39,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 102
+      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 108
@@ -590,7 +592,7 @@ ScriptsOnlyBuild:
     className: FSP_ContinuousRotation
   - hash:
       serializedVersion: 2
-      Hash: e7e3d58f681dda60ab1cebe494658108
+      Hash: 85a49cbc47af618c4b4a25d88d3c75dc
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GridMovement
@@ -608,7 +610,7 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
-      Hash: e655b66a30371bbde6845a95ad0c3a63
+      Hash: aa6540881eca55358e9380fc9af60e2d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Tile
@@ -638,7 +640,7 @@ ScriptsOnlyBuild:
     className: AudioTrack
   - hash:
       serializedVersion: 2
-      Hash: 8e8ef99e83045a3e6400477deba4b6b0
+      Hash: c1a3cb30a1bf0fa4d442455632dd2238
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerMovement

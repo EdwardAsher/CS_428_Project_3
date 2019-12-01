@@ -322,6 +322,15 @@
         },
         {
             "managedAssemblyName": "UnityEngine.dll",
+            "nativeClass": "TextMesh",
+            "fullManagedTypeName": "UnityEngine.TextMesh",
+            "moduleName": "TextRendering",
+            "usedInScenes": [
+                "Assets/Scenes/Main.unity"
+            ]
+        },
+        {
+            "managedAssemblyName": "UnityEngine.dll",
             "nativeClass": "Canvas",
             "fullManagedTypeName": "UnityEngine.Canvas",
             "moduleName": "UI",

@@ -12,6 +12,7 @@ public class Tile : MonoBehaviour
     public float neighborDistance = 0.125f;
 
     public List<Tile> adjacencyList = new List<Tile>();
+    public List<GameObject> enemiesList = new List<GameObject>();
 
     public bool visited = false;
     public Tile parent = null;
@@ -132,7 +133,63 @@ public class Tile : MonoBehaviour
 
     }
 
-    void Test2()
+    public void CheckNeighbors(float jumpHeight)
+    {
+        Vector3 temp = new Vector3();
+        temp.z = 0.1f;
+        CheckAboveTile(temp, jumpHeight);
+        CheckAboveTile(-temp, jumpHeight);
+        temp.z = 0;
+        temp.x = 0.1f;
+        CheckAboveTile(temp, jumpHeight);
+        CheckAboveTile(-temp, jumpHeight);
+    }
+
+    public void CheckAboveTile(Vector3 direction, float jumpHeight)
+    {
+        Vector3 halfExtents = new Vector3(0.1f, (0.1f + jumpHeight / 4.0f), 0.1f);
+        //Debug.DrawRay(transform.position, direction, Color.white);
+        Collider[] colliders = Physics.OverlapBox(transform.position + direction, halfExtents);
+
+        foreach (Collider item in colliders)
+        {
+            Tile tile = item.GetComponent<Tile>();
+            if (tile != null)
+            {
+                RaycastHit hit;
+
+                //Check if something above
+                Vector3 temp = new Vector3();
+                temp = Vector3.up;
+                temp.y = 0.3f;
+                var hitCheck = Physics.Raycast(tile.transform.position, temp, out hit, 1);
+                Color color = hitCheck ? Color.green : Color.red;
+                if (hit.collider != null)
+                {
+                    //Debug.Log(hit.collider.name);
+                    //tileOccupant = hit.collider.tag;
+                }
+
+                Debug.DrawRay(transform.position, temp, color);
+                if (Physics.Raycast(tile.transform.position, temp, out hit, 1))
+                {
+                    //Debug.Log(hit.collider.gameObject.name);
+                }
+                if (tile.occupied == true)
+                {
+                    //Debug.Log(hit.collider.gameObject.name);
+                    if (tile.occupied)
+                    {
+                        Debug.Log("OCCUPIED");
+                    }
+                    enemiesList.Add(this.gameObject);
+                }
+            }
+        }
+    }
+
+
+void Test2()
     {
         /*if (cube.activeSelf == true)
         {

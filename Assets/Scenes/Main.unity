@@ -120,6 +120,101 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &1402460
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1402461}
+  - component: {fileID: 1402464}
+  - component: {fileID: 1402463}
+  - component: {fileID: 1402462}
+  m_Layer: 0
+  m_Name: Options
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1402461
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402460}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 2.979167, y: 1.516667, z: 0}
+  m_LocalScale: {x: 0.041666754, y: 2.6789167, z: 4.166671}
+  m_Children:
+  - {fileID: 1732366870}
+  - {fileID: 1816233080}
+  - {fileID: 1426108537}
+  m_Father: {fileID: 79637819}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!65 &1402462
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402460}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1402463
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402460}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: bdf26a2331c752f4390fd9e77cf889fc, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1402464
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402460}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &25630286
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,9 +327,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &27915213
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,9 +444,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &34105809
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,9 +605,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &78128449
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,9 +722,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &79637814
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,7 +766,10 @@ MonoBehaviour:
   moveSpeed: 0.5
   jumpVelocity: 4.5
   target: {fileID: 0}
-  cube: {fileID: 183616483}
+  waiting: 0
+  decided: 0
+  enemiesList: []
+  cube: {fileID: 1402460}
   debug: {fileID: 940766452}
 --- !u!136 &79637816
 CapsuleCollider:
@@ -735,9 +841,10 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.125, y: -0.65, z: 5.75}
   m_LocalScale: {x: 0.24, y: 0.24, z: 0.24}
-  m_Children: []
+  m_Children:
+  - {fileID: 1402461}
   m_Father: {fileID: 1603265248}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &83507513
 GameObject:
@@ -851,9 +958,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &89310027
 GameObject:
   m_ObjectHideFlags: 0
@@ -966,9 +1075,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &96449964
 GameObject:
   m_ObjectHideFlags: 0
@@ -1164,9 +1275,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &106231970
 GameObject:
   m_ObjectHideFlags: 0
@@ -1279,9 +1392,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &113074323
 GameObject:
   m_ObjectHideFlags: 0
@@ -1394,9 +1509,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &113180607
 GameObject:
   m_ObjectHideFlags: 0
@@ -1509,9 +1626,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &115120932
 GameObject:
   m_ObjectHideFlags: 0
@@ -1666,9 +1785,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &134456396
 GameObject:
   m_ObjectHideFlags: 0
@@ -1781,9 +1902,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &141508636
 GameObject:
   m_ObjectHideFlags: 0
@@ -1896,9 +2019,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &169766277
 GameObject:
   m_ObjectHideFlags: 0
@@ -2011,9 +2136,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &183616483
 GameObject:
   m_ObjectHideFlags: 0
@@ -2218,9 +2345,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &224978790
 GameObject:
   m_ObjectHideFlags: 0
@@ -2333,9 +2462,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &225954163
 GameObject:
   m_ObjectHideFlags: 0
@@ -2448,9 +2579,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &229194005
 GameObject:
   m_ObjectHideFlags: 0
@@ -2563,9 +2696,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &239891884
 GameObject:
   m_ObjectHideFlags: 0
@@ -2678,9 +2813,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &242764938
 GameObject:
   m_ObjectHideFlags: 0
@@ -2793,9 +2930,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &246471863
 GameObject:
   m_ObjectHideFlags: 0
@@ -2908,9 +3047,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &268163042
 GameObject:
   m_ObjectHideFlags: 0
@@ -3023,9 +3164,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &283572088
 GameObject:
   m_ObjectHideFlags: 0
@@ -3138,9 +3281,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &289733189
 GameObject:
   m_ObjectHideFlags: 0
@@ -3253,9 +3398,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &301069508
 GameObject:
   m_ObjectHideFlags: 0
@@ -3368,9 +3515,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &305843840
 GameObject:
   m_ObjectHideFlags: 0
@@ -3483,9 +3632,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &363835223
 GameObject:
   m_ObjectHideFlags: 0
@@ -3598,9 +3749,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &375902088
 GameObject:
   m_ObjectHideFlags: 0
@@ -3713,9 +3866,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &377246027
 GameObject:
   m_ObjectHideFlags: 0
@@ -3828,9 +3983,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &379584981
 GameObject:
   m_ObjectHideFlags: 0
@@ -3943,9 +4100,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &385474137
 GameObject:
   m_ObjectHideFlags: 0
@@ -4058,9 +4217,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &394289333
 GameObject:
   m_ObjectHideFlags: 0
@@ -4173,9 +4334,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &404430095
 GameObject:
   m_ObjectHideFlags: 0
@@ -4288,9 +4451,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &432720017
 GameObject:
   m_ObjectHideFlags: 0
@@ -4403,9 +4568,103 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
+--- !u!1 &454208913
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 454208914}
+  - component: {fileID: 454208917}
+  - component: {fileID: 454208916}
+  - component: {fileID: 454208915}
+  m_Layer: 0
+  m_Name: Attack Buttons
+  m_TagString: Attack_Button
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &454208914
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454208913}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.43, y: -0.000000046353, z: -0.21}
+  m_LocalScale: {x: 1, y: 0.22371, z: 0.30702522}
+  m_Children: []
+  m_Father: {fileID: 1944396411}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &454208915
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454208913}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &454208916
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454208913}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: f68c2d35d30676e4c9ff7363a84f0f68, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &454208917
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454208913}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &460901226
 GameObject:
   m_ObjectHideFlags: 0
@@ -4618,9 +4877,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &468926014
 GameObject:
   m_ObjectHideFlags: 0
@@ -4733,9 +4994,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &474265530
 GameObject:
   m_ObjectHideFlags: 0
@@ -4890,9 +5153,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &513995315
 GameObject:
   m_ObjectHideFlags: 0
@@ -5005,9 +5270,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &518566337
 GameObject:
   m_ObjectHideFlags: 0
@@ -5120,9 +5387,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &528319152
 GameObject:
   m_ObjectHideFlags: 0
@@ -5235,9 +5504,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &539295285
 GameObject:
   m_ObjectHideFlags: 0
@@ -5350,9 +5621,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &539600394
 GameObject:
   m_ObjectHideFlags: 0
@@ -5465,9 +5738,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &551199226
 GameObject:
   m_ObjectHideFlags: 0
@@ -5580,9 +5855,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &591659451
 GameObject:
   m_ObjectHideFlags: 0
@@ -5695,9 +5972,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &593481917
 GameObject:
   m_ObjectHideFlags: 0
@@ -5740,6 +6019,98 @@ Transform:
   m_Father: {fileID: 474265531}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &600902502
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 600902503}
+  - component: {fileID: 600902505}
+  - component: {fileID: 600902504}
+  m_Layer: 0
+  m_Name: New Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &600902503
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600902502}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0.38728347, z: -0.40400004}
+  m_LocalScale: {x: 0.098079816, y: 0.15254891, z: 9.8079815}
+  m_Children: []
+  m_Father: {fileID: 1822994386}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!102 &600902504
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600902502}
+  m_Text: Hello World
+  m_OffsetZ: 0
+  m_CharacterSize: 1
+  m_LineSpacing: 1
+  m_Anchor: 0
+  m_Alignment: 0
+  m_TabSize: 4
+  m_FontSize: 0
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+--- !u!23 &600902505
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600902502}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &621763702
 GameObject:
   m_ObjectHideFlags: 0
@@ -5894,9 +6265,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &692158578
 GameObject:
   m_ObjectHideFlags: 0
@@ -6009,9 +6382,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &693325459
 GameObject:
   m_ObjectHideFlags: 0
@@ -6166,9 +6541,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &750925099
 GameObject:
   m_ObjectHideFlags: 0
@@ -6281,9 +6658,103 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
+--- !u!1 &761414005
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 761414006}
+  - component: {fileID: 761414009}
+  - component: {fileID: 761414008}
+  - component: {fileID: 761414007}
+  m_Layer: 0
+  m_Name: Attack Buttons
+  m_TagString: Attack_Button
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &761414006
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761414005}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.43, y: -0.000000046353, z: -0.21}
+  m_LocalScale: {x: 1, y: 0.22371, z: 0.30702522}
+  m_Children: []
+  m_Father: {fileID: 1822994386}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &761414007
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761414005}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &761414008
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761414005}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: f68c2d35d30676e4c9ff7363a84f0f68, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &761414009
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761414005}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &782761767
 GameObject:
   m_ObjectHideFlags: 0
@@ -6396,9 +6867,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &783199218
 GameObject:
   m_ObjectHideFlags: 0
@@ -6511,9 +6984,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &784695769
 GameObject:
   m_ObjectHideFlags: 0
@@ -6626,9 +7101,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &785860295
 GameObject:
   m_ObjectHideFlags: 0
@@ -6741,9 +7218,103 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
+--- !u!1 &788786630
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 788786631}
+  - component: {fileID: 788786634}
+  - component: {fileID: 788786633}
+  - component: {fileID: 788786632}
+  m_Layer: 0
+  m_Name: Wait Button
+  m_TagString: Wait_Button
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &788786631
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788786630}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.4, y: -0.000000046353, z: 0.2}
+  m_LocalScale: {x: 1, y: 0.22371, z: 0.30702522}
+  m_Children: []
+  m_Father: {fileID: 1822994386}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &788786632
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788786630}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &788786633
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788786630}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 43eacca2532087a4facbffb2df9e9fbb, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &788786634
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788786630}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &789723099
 GameObject:
   m_ObjectHideFlags: 0
@@ -6856,9 +7427,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &792533797
 GameObject:
   m_ObjectHideFlags: 0
@@ -6971,9 +7544,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &794199837
 GameObject:
   m_ObjectHideFlags: 0
@@ -7086,9 +7661,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &802302322
 GameObject:
   m_ObjectHideFlags: 0
@@ -7201,9 +7778,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &828566276
 GameObject:
   m_ObjectHideFlags: 0
@@ -7358,9 +7937,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &850915772
 GameObject:
   m_ObjectHideFlags: 0
@@ -7473,9 +8054,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &859568124
 GameObject:
   m_ObjectHideFlags: 0
@@ -7588,9 +8171,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &891455685
 GameObject:
   m_ObjectHideFlags: 0
@@ -7703,9 +8288,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &898464592
 GameObject:
   m_ObjectHideFlags: 0
@@ -7818,9 +8405,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &904501336
 GameObject:
   m_ObjectHideFlags: 0
@@ -7933,9 +8522,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &915413402
 GameObject:
   m_ObjectHideFlags: 0
@@ -8048,9 +8639,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &915758914
 GameObject:
   m_ObjectHideFlags: 0
@@ -8163,9 +8756,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &940766450
 GameObject:
   m_ObjectHideFlags: 0
@@ -8355,9 +8950,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &948446239
 GameObject:
   m_ObjectHideFlags: 0
@@ -8470,9 +9067,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &953496363
 GameObject:
   m_ObjectHideFlags: 0
@@ -8585,9 +9184,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &961016510
 GameObject:
   m_ObjectHideFlags: 0
@@ -8700,9 +9301,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &971873448
 GameObject:
   m_ObjectHideFlags: 0
@@ -8857,9 +9460,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &975771962
 GameObject:
   m_ObjectHideFlags: 0
@@ -8972,9 +9577,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1000281953
 GameObject:
   m_ObjectHideFlags: 0
@@ -9087,9 +9694,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1029175974
 GameObject:
   m_ObjectHideFlags: 0
@@ -9202,9 +9811,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1040136716
 GameObject:
   m_ObjectHideFlags: 0
@@ -9317,9 +9928,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1064809510
 GameObject:
   m_ObjectHideFlags: 0
@@ -9474,9 +10087,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1104888209
 GameObject:
   m_ObjectHideFlags: 0
@@ -9589,9 +10204,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1110757626
 GameObject:
   m_ObjectHideFlags: 0
@@ -9704,9 +10321,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1140147255
 GameObject:
   m_ObjectHideFlags: 0
@@ -9819,9 +10438,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1166516383
 GameObject:
   m_ObjectHideFlags: 0
@@ -10000,9 +10621,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1185797578
 GameObject:
   m_ObjectHideFlags: 0
@@ -10115,9 +10738,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1210731482
 GameObject:
   m_ObjectHideFlags: 0
@@ -10230,9 +10855,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1212896628
 GameObject:
   m_ObjectHideFlags: 0
@@ -10345,9 +10972,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1216531235
 GameObject:
   m_ObjectHideFlags: 0
@@ -10537,9 +11166,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1265205837
 GameObject:
   m_ObjectHideFlags: 0
@@ -10652,9 +11283,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1266649983
 GameObject:
   m_ObjectHideFlags: 0
@@ -10767,9 +11400,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1274492178
 GameObject:
   m_ObjectHideFlags: 0
@@ -10882,9 +11517,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1292425657
 GameObject:
   m_ObjectHideFlags: 0
@@ -10915,9 +11552,10 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.379, y: -0.65, z: 3}
   m_LocalScale: {x: 0.24, y: 0.24, z: 0.24}
-  m_Children: []
+  m_Children:
+  - {fileID: 1822994386}
   m_Father: {fileID: 1603265248}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1292425659
 MonoBehaviour:
@@ -10938,7 +11576,10 @@ MonoBehaviour:
   moveSpeed: 0.5
   jumpVelocity: 4.5
   target: {fileID: 0}
-  cube: {fileID: 1945745633}
+  waiting: 0
+  decided: 0
+  enemiesList: []
+  cube: {fileID: 1822994385}
   debug: {fileID: 940766452}
 --- !u!136 &1292425660
 CapsuleCollider:
@@ -11112,9 +11753,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1306373751
 GameObject:
   m_ObjectHideFlags: 0
@@ -11227,9 +11870,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1324294176
 GameObject:
   m_ObjectHideFlags: 0
@@ -11342,9 +11987,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1332625712
 GameObject:
   m_ObjectHideFlags: 0
@@ -11457,9 +12104,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1334009638
 GameObject:
   m_ObjectHideFlags: 0
@@ -11572,9 +12221,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1344195188
 GameObject:
   m_ObjectHideFlags: 0
@@ -11687,9 +12338,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1352544308
 GameObject:
   m_ObjectHideFlags: 0
@@ -11802,9 +12455,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1355615067
 GameObject:
   m_ObjectHideFlags: 0
@@ -11917,9 +12572,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1357951258
 GameObject:
   m_ObjectHideFlags: 0
@@ -12032,9 +12689,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1385026687
 GameObject:
   m_ObjectHideFlags: 0
@@ -12147,9 +12806,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1408021731
 GameObject:
   m_ObjectHideFlags: 0
@@ -12262,9 +12923,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1408322668
 GameObject:
   m_ObjectHideFlags: 0
@@ -12377,9 +13040,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1409677608
 GameObject:
   m_ObjectHideFlags: 0
@@ -12492,9 +13157,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1421085589
 GameObject:
   m_ObjectHideFlags: 0
@@ -12607,9 +13274,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1423569338
 GameObject:
   m_ObjectHideFlags: 0
@@ -12722,9 +13391,103 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
+--- !u!1 &1426108536
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1426108537}
+  - component: {fileID: 1426108540}
+  - component: {fileID: 1426108539}
+  - component: {fileID: 1426108538}
+  m_Layer: 0
+  m_Name: Wait Button
+  m_TagString: Wait_Button
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1426108537
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426108536}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.4, y: -0.000000046353, z: 0.2}
+  m_LocalScale: {x: 1, y: 0.22371, z: 0.30702522}
+  m_Children: []
+  m_Father: {fileID: 1402461}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1426108538
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426108536}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1426108539
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426108536}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 43eacca2532087a4facbffb2df9e9fbb, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1426108540
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426108536}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1451657316
 GameObject:
   m_ObjectHideFlags: 0
@@ -12837,9 +13600,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1469027666
 GameObject:
   m_ObjectHideFlags: 0
@@ -12952,9 +13717,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1469064082
 GameObject:
   m_ObjectHideFlags: 0
@@ -13067,9 +13834,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1488509532
 GameObject:
   m_ObjectHideFlags: 0
@@ -13224,9 +13993,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1507611914
 GameObject:
   m_ObjectHideFlags: 0
@@ -13339,9 +14110,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1512796689
 GameObject:
   m_ObjectHideFlags: 0
@@ -13496,9 +14269,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1567314210
 GameObject:
   m_ObjectHideFlags: 0
@@ -13611,9 +14386,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1578972739
 GameObject:
   m_ObjectHideFlags: 0
@@ -13726,9 +14503,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1590440813
 GameObject:
   m_ObjectHideFlags: 0
@@ -13841,9 +14620,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1603265246
 GameObject:
   m_ObjectHideFlags: 0
@@ -13884,14 +14665,106 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1951513514}
   - {fileID: 1292425658}
   - {fileID: 79637819}
   - {fileID: 1830067024}
-  - {fileID: 1951513514}
   - {fileID: 474265531}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1608870882
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1608870883}
+  - component: {fileID: 1608870885}
+  - component: {fileID: 1608870884}
+  m_Layer: 0
+  m_Name: New Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1608870883
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608870882}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0.38728347, z: -0.40400004}
+  m_LocalScale: {x: 0.098079816, y: 0.15254891, z: 9.8079815}
+  m_Children: []
+  m_Father: {fileID: 1701147252}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!102 &1608870884
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608870882}
+  m_Text: Hello World
+  m_OffsetZ: 0
+  m_CharacterSize: 1
+  m_LineSpacing: 1
+  m_Anchor: 0
+  m_Alignment: 0
+  m_TabSize: 4
+  m_FontSize: 0
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+--- !u!23 &1608870885
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608870882}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &1608942935
 GameObject:
   m_ObjectHideFlags: 0
@@ -14004,9 +14877,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1628818439
 GameObject:
   m_ObjectHideFlags: 0
@@ -14119,9 +14994,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1638004320
 GameObject:
   m_ObjectHideFlags: 0
@@ -14234,9 +15111,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1646771348
 GameObject:
   m_ObjectHideFlags: 0
@@ -14349,9 +15228,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1652677195
 GameObject:
   m_ObjectHideFlags: 0
@@ -14464,9 +15345,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1660105754
 GameObject:
   m_ObjectHideFlags: 0
@@ -14579,9 +15462,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1001 &1681764680
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14778,9 +15663,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1684479861
 GameObject:
   m_ObjectHideFlags: 0
@@ -14893,9 +15780,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1685051484
 GameObject:
   m_ObjectHideFlags: 0
@@ -15008,9 +15897,103 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
+--- !u!1 &1686574806
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1686574807}
+  - component: {fileID: 1686574810}
+  - component: {fileID: 1686574809}
+  - component: {fileID: 1686574808}
+  m_Layer: 0
+  m_Name: Wait Button
+  m_TagString: Wait_Button
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1686574807
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686574806}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.4, y: -0.000000046353, z: 0.2}
+  m_LocalScale: {x: 1, y: 0.22371, z: 0.30702522}
+  m_Children: []
+  m_Father: {fileID: 1701147252}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1686574808
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686574806}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1686574809
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686574806}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 43eacca2532087a4facbffb2df9e9fbb, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1686574810
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686574806}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1696777555
 GameObject:
   m_ObjectHideFlags: 0
@@ -15123,9 +16106,106 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
+--- !u!1 &1701147251
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1701147252}
+  - component: {fileID: 1701147255}
+  - component: {fileID: 1701147254}
+  - component: {fileID: 1701147253}
+  m_Layer: 0
+  m_Name: Options
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1701147252
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701147251}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 2.879167, y: 1.5166671, z: 0}
+  m_LocalScale: {x: 0.04166677, y: 2.6789167, z: 4.1666727}
+  m_Children:
+  - {fileID: 1608870883}
+  - {fileID: 1750808699}
+  - {fileID: 1686574807}
+  m_Father: {fileID: 1830067024}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!65 &1701147253
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701147251}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1701147254
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701147251}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: bdf26a2331c752f4390fd9e77cf889fc, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1701147255
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701147251}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1706989436
 GameObject:
   m_ObjectHideFlags: 0
@@ -15238,9 +16318,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1707223902
 GameObject:
   m_ObjectHideFlags: 0
@@ -15353,9 +16435,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1718702668
 GameObject:
   m_ObjectHideFlags: 0
@@ -15468,9 +16552,103 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
+--- !u!1 &1732366869
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1732366870}
+  - component: {fileID: 1732366872}
+  - component: {fileID: 1732366871}
+  m_Layer: 0
+  m_Name: New Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1732366870
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732366869}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0.38728347, z: -0.40400004}
+  m_LocalScale: {x: 0.098079816, y: 0.15254891, z: 9.8079815}
+  m_Children: []
+  m_Father: {fileID: 1402461}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!102 &1732366871
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732366869}
+  m_Text: Hello World
+  m_OffsetZ: 0
+  m_CharacterSize: 1
+  m_LineSpacing: 1
+  m_Anchor: 0
+  m_Alignment: 0
+  m_TabSize: 4
+  m_FontSize: 0
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+--- !u!23 &1732366872
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732366869}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &1738031686
 GameObject:
   m_ObjectHideFlags: 0
@@ -15513,6 +16691,98 @@ Transform:
   m_Father: {fileID: 474265531}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1750808698
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1750808699}
+  - component: {fileID: 1750808702}
+  - component: {fileID: 1750808701}
+  - component: {fileID: 1750808700}
+  m_Layer: 0
+  m_Name: Attack Buttons
+  m_TagString: Attack_Button
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1750808699
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750808698}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.43, y: -0.000000046353, z: -0.21}
+  m_LocalScale: {x: 1, y: 0.22371, z: 0.30702522}
+  m_Children: []
+  m_Father: {fileID: 1701147252}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1750808700
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750808698}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1750808701
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750808698}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: f68c2d35d30676e4c9ff7363a84f0f68, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1750808702
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750808698}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1758034244
 GameObject:
   m_ObjectHideFlags: 0
@@ -15625,9 +16895,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1801964722
 GameObject:
   m_ObjectHideFlags: 0
@@ -15740,9 +17012,198 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
+--- !u!1 &1816233079
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1816233080}
+  - component: {fileID: 1816233083}
+  - component: {fileID: 1816233082}
+  - component: {fileID: 1816233081}
+  m_Layer: 0
+  m_Name: Attack Buttons
+  m_TagString: Attack_Button
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1816233080
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816233079}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.43, y: -0.000000046353, z: -0.21}
+  m_LocalScale: {x: 1, y: 0.22371, z: 0.30702522}
+  m_Children: []
+  m_Father: {fileID: 1402461}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1816233081
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816233079}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1816233082
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816233079}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: f68c2d35d30676e4c9ff7363a84f0f68, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1816233083
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816233079}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1822994385
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1822994386}
+  - component: {fileID: 1822994389}
+  - component: {fileID: 1822994388}
+  - component: {fileID: 1822994387}
+  m_Layer: 0
+  m_Name: Options
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1822994386
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822994385}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 2.5875, y: 1.5166674, z: 0.24583341}
+  m_LocalScale: {x: 0.0416667, y: 2.6789167, z: 4.166669}
+  m_Children:
+  - {fileID: 600902503}
+  - {fileID: 761414006}
+  - {fileID: 788786631}
+  m_Father: {fileID: 1292425658}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!65 &1822994387
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822994385}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1822994388
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822994385}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: bdf26a2331c752f4390fd9e77cf889fc, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1822994389
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822994385}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1826466946
 GameObject:
   m_ObjectHideFlags: 0
@@ -15855,9 +17316,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1830067023
 GameObject:
   m_ObjectHideFlags: 0
@@ -15888,9 +17351,10 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.375, y: -0.65, z: 5.75}
   m_LocalScale: {x: 0.24, y: 0.24, z: 0.24}
-  m_Children: []
+  m_Children:
+  - {fileID: 1701147252}
   m_Father: {fileID: 1603265248}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1830067025
 MonoBehaviour:
@@ -15911,7 +17375,10 @@ MonoBehaviour:
   moveSpeed: 0.5
   jumpVelocity: 4.5
   target: {fileID: 0}
-  cube: {fileID: 183616483}
+  waiting: 0
+  decided: 0
+  enemiesList: []
+  cube: {fileID: 1701147251}
   debug: {fileID: 940766452}
 --- !u!136 &1830067026
 CapsuleCollider:
@@ -16085,9 +17552,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1848772918
 GameObject:
   m_ObjectHideFlags: 0
@@ -16200,9 +17669,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1927230398
 GameObject:
   m_ObjectHideFlags: 0
@@ -16315,9 +17786,198 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
+--- !u!1 &1934160266
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1934160267}
+  - component: {fileID: 1934160269}
+  - component: {fileID: 1934160268}
+  m_Layer: 0
+  m_Name: New Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1934160267
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934160266}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0.38728347, z: -0.40400004}
+  m_LocalScale: {x: 0.098079816, y: 0.15254891, z: 9.8079815}
+  m_Children: []
+  m_Father: {fileID: 1944396411}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!102 &1934160268
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934160266}
+  m_Text: Hello World
+  m_OffsetZ: 0
+  m_CharacterSize: 1
+  m_LineSpacing: 1
+  m_Anchor: 0
+  m_Alignment: 0
+  m_TabSize: 4
+  m_FontSize: 0
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+--- !u!23 &1934160269
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934160266}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!1 &1944396410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1944396411}
+  - component: {fileID: 1944396414}
+  - component: {fileID: 1944396413}
+  - component: {fileID: 1944396412}
+  m_Layer: 0
+  m_Name: Options
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1944396411
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944396410}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 2.904167, y: 1.5166672, z: 0.2458334}
+  m_LocalScale: {x: 0.0416667, y: 2.6789167, z: 4.166669}
+  m_Children:
+  - {fileID: 1934160267}
+  - {fileID: 454208914}
+  - {fileID: 1995551468}
+  m_Father: {fileID: 1951513514}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!65 &1944396412
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944396410}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1944396413
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944396410}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: bdf26a2331c752f4390fd9e77cf889fc, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1944396414
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944396410}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1945745633
 GameObject:
   m_ObjectHideFlags: 0
@@ -16500,9 +18160,10 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.125, y: -0.65, z: 3}
   m_LocalScale: {x: 0.24, y: 0.24, z: 0.24}
-  m_Children: []
+  m_Children:
+  - {fileID: 1944396411}
   m_Father: {fileID: 1603265248}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1951513515
 MonoBehaviour:
@@ -16523,7 +18184,10 @@ MonoBehaviour:
   moveSpeed: 0.5
   jumpVelocity: 4.5
   target: {fileID: 0}
-  cube: {fileID: 1945745633}
+  waiting: 0
+  decided: 0
+  enemiesList: []
+  cube: {fileID: 1944396410}
   debug: {fileID: 940766452}
 --- !u!1 &1956220985
 GameObject:
@@ -16637,9 +18301,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1956324751
 GameObject:
   m_ObjectHideFlags: 0
@@ -16752,9 +18418,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1975294960
 GameObject:
   m_ObjectHideFlags: 0
@@ -16867,9 +18535,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1975433679
 GameObject:
   m_ObjectHideFlags: 0
@@ -16982,9 +18652,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &1989955017
 GameObject:
   m_ObjectHideFlags: 0
@@ -17097,9 +18769,103 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
+--- !u!1 &1995551467
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1995551468}
+  - component: {fileID: 1995551471}
+  - component: {fileID: 1995551470}
+  - component: {fileID: 1995551469}
+  m_Layer: 0
+  m_Name: Wait Button
+  m_TagString: Wait_Button
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1995551468
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995551467}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.4, y: -0.000000046353, z: 0.2}
+  m_LocalScale: {x: 1, y: 0.22371, z: 0.30702522}
+  m_Children: []
+  m_Father: {fileID: 1944396411}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1995551469
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995551467}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1995551470
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995551467}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 43eacca2532087a4facbffb2df9e9fbb, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1995551471
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995551467}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &2002424852
 GameObject:
   m_ObjectHideFlags: 0
@@ -17212,9 +18978,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &2005884142
 GameObject:
   m_ObjectHideFlags: 0
@@ -17327,9 +19095,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &2029925368
 GameObject:
   m_ObjectHideFlags: 0
@@ -17442,9 +19212,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &2035883334
 GameObject:
   m_ObjectHideFlags: 0
@@ -17557,9 +19329,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &2039660924
 GameObject:
   m_ObjectHideFlags: 0
@@ -17672,9 +19446,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &2040172913
 GameObject:
   m_ObjectHideFlags: 0
@@ -17787,9 +19563,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &2046067631
 GameObject:
   m_ObjectHideFlags: 0
@@ -17902,9 +19680,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &2081732932
 GameObject:
   m_ObjectHideFlags: 0
@@ -18017,9 +19797,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &2087249629
 GameObject:
   m_ObjectHideFlags: 0
@@ -18132,9 +19914,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &2094778967
 GameObject:
   m_ObjectHideFlags: 0
@@ -18247,9 +20031,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &2112694439
 GameObject:
   m_ObjectHideFlags: 0
@@ -18362,9 +20148,11 @@ MonoBehaviour:
   selectable: 0
   neighborDistance: 0.125
   adjacencyList: []
+  enemiesList: []
   visited: 0
   parent: {fileID: 0}
   distance: 0
+  tileOccupant: 
 --- !u!1 &2113233621
 GameObject:
   m_ObjectHideFlags: 0

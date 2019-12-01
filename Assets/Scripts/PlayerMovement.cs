@@ -13,6 +13,8 @@ public class PlayerMovement : GridMovement
     public GameObject cube;
     public Text debug;
     private int i = 0;
+
+    bool targetValidated = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,9 +32,30 @@ public class PlayerMovement : GridMovement
                 {
                     OnSelect(FocusedObject.gameObject);
                 }
-                else if (FocusedObject.tag == "NPC")
+                else if (FocusedObject.tag == "NPC" )
                 {
-                    CheckTarget(FocusedObject.gameObject);
+                    //if (!waiting)
+                    //{
+                    CheckTarget(FocusedObject.gameObject, "NPC");
+                    ValidateTarget(FocusedObject.gameObject,"NPC");
+                    //}
+                    //else
+                    //{
+                    //    ValidateTarget(FocusedObject.gameObject);
+                    //}
+                }
+                else if (FocusedObject.tag == "Player")
+                {
+                    CheckTarget(FocusedObject.gameObject, "Player");
+                    ValidateTarget(FocusedObject.gameObject, "player");
+                }
+                else if (FocusedObject.tag == "Attack_Button")
+                {
+                    AttackTarget();
+                }
+                else if (FocusedObject.tag == "Wait_Button")
+                {
+                    Wait();
                 }
                 //FocusedObject.SendMessageUpwards("OnSelect", SendMessageOptions.DontRequireReceiver);
             }
@@ -59,7 +82,22 @@ public class PlayerMovement : GridMovement
             }
             
         }
-        if (!turn)
+        if (waiting)
+        {
+            Quaternion toQuat = Camera.main.transform.localRotation;
+            toQuat.x = 0;
+            toQuat.z = 0;
+            cube.SetActive(true);
+            cube.transform.parent.rotation = toQuat;
+            CheckMouse();
+            recognizer.StartCapturingGestures();
+            CheckGesture();
+        }
+        else
+        {
+            cube.SetActive(false);
+        }
+        if (!turn || waiting)
         {
             return;
         }
@@ -109,10 +147,38 @@ public class PlayerMovement : GridMovement
                 {
                     GameObject unit = hit.collider.gameObject;
                     //bool reachable = CheckBelow();
-                    target = unit;
+                    
                     
                     Tile t = GetTargetTile(unit);
+                    if (waiting || this.gameObject.tag == "NPC")
+                    {
+                        return;
+                    }
+                    target = unit;
+                    if (AttackNearbyTiles() )
+                    {
+                        //move target
+                        //target = unit;
+                        MovetoTile(t);
+                        //Attack(unit);
+                    }
+                    else
+                    {
+                        target = null;
+                    }
+                }
+                if (hit.collider.tag == "Player")
+                {
+                    GameObject unit = hit.collider.gameObject;
+                    //bool reachable = CheckBelow();
+                    
 
+                    Tile t = GetTargetTile(unit);
+                    if (waiting || this.gameObject.tag == "Player")
+                    {
+                        return;
+                    }
+                    target = unit;
                     if (AttackNearbyTiles())
                     {
                         //move target
@@ -125,15 +191,130 @@ public class PlayerMovement : GridMovement
                         target = null;
                     }
                 }
+                if (hit.collider.tag == "Attack_Button")
+                {
+                    Debug.Log("Attack chosen");
+                    //Tile t = hit.collider.GetComponent<Tile>();
+
+                    //if (t.selectable)
+                    //{
+                    //move target
+
+                    //    MovetoTile(t);
+                    //}
+                    CheckDirections();
+                    if (enemiesList.Count > 0)
+                    {
+                        StartCoroutine("SelectTarget");
+                    }
+                    //decided = true;
+                }
+                if (hit.collider.tag == "Wait_Button")
+                {
+                    Debug.Log("Wait chosen");
+                    //Tile t = hit.collider.GetComponent<Tile>();
+
+                    //if (t.selectable)
+                    //{
+                    //move target
+
+                    //    MovetoTile(t);
+                    //}
+                    decided = true;
+                    //decided = true;
+                }
             }
         }
     }
 
-    void CheckTarget(GameObject tar)
+    IEnumerator SelectTarget ()
+    {
+        Debug.Log("testing");
+        yield return new WaitUntil(() => ValidTarget(false));
+        decided = true;
+    }
+
+    bool ValidTarget(bool gesture)
+    {
+        if (Input.GetMouseButtonUp(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider.tag == "NPC")
+                {
+                    if (this.gameObject.tag == "NPC")
+                        return false;
+                    GameObject unit = hit.collider.gameObject;
+                    //bool reachable = CheckBelow();
+                    if (enemiesList.Contains(unit))
+                    {
+                        Debug.Log("Hit");
+                        Attack(unit);
+                        return true;
+                    }
+                    else return false;
+                }
+                if (hit.collider.tag == "Player")
+                {
+                    if (this.gameObject.tag == "Player")
+                        return false;
+                    GameObject unit = hit.collider.gameObject;
+                    //bool reachable = CheckBelow();
+                    if (enemiesList.Contains(unit))
+                    {
+                        Debug.Log("Hit");
+                        Attack(unit);
+                        return true;
+                    }
+                    else return false;
+                }
+            }
+            
+        }
+        else if (gesture == true)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    void ValidateTarget(GameObject tar, string tag)
+    {
+        if (tar.gameObject.tag == this.gameObject.tag || !waiting)
+        {
+            return;
+        }
+        target = tar;
+
+        if (enemiesList.Contains(tar))
+        {
+            Debug.Log("Hit");
+            debug.text = "Hit";
+            Attack(tar);
+            targetValidated = true;
+            //ValidTarget(true);
+            return;
+        }
+        else
+        {
+            return;
+        }
+    }
+
+    void CheckTarget(GameObject tar, string tag)
     {
         //GameObject unit = hit.collider.gameObject;
         //bool reachable = CheckBelow();
-        target = tar;
+        if (tar.gameObject.tag == this.gameObject.tag || waiting)
+        {
+            return;
+        }
+        target = tar.gameObject;
 
         Tile t = GetTargetTile(tar);
 
@@ -212,6 +393,28 @@ public class PlayerMovement : GridMovement
 
         //}
 
+    }
+
+    void AttackTarget()
+    {
+        targetValidated = false;
+        CheckDirections();
+        if (enemiesList.Count > 0)
+        {
+            StartCoroutine("SelectGestureTarget");
+        }
+    }
+
+    IEnumerator SelectGestureTarget()
+    {
+        
+        yield return new WaitUntil(() => targetValidated);
+        decided = true;
+    }
+
+    void Wait()
+    {
+        decided = true;
     }
         //}
     //}
