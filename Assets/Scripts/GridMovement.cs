@@ -55,6 +55,10 @@ public class GridMovement : MonoBehaviour
     public void GetCurrentTile()
     {
         currentTile = GetTargetTile(gameObject);
+        if (currentTile == null)
+        {
+            Debug.Log("error");
+        }
         currentTile.currentTile = true;
         //currentTile.occupied = true;
     }
@@ -64,8 +68,9 @@ public class GridMovement : MonoBehaviour
         RaycastHit hit;
         Tile tile = null;
 
-        if (Physics.Raycast(target.transform.position, -Vector3.up, out hit, 1))
+        if (Physics.Raycast(this.transform.position, -Vector3.up, out hit, 1))
         {
+            Debug.Log("hit");
             tile = hit.collider.GetComponent<Tile>();
         }
 
@@ -213,7 +218,7 @@ public class GridMovement : MonoBehaviour
                 if (jump)
                 {
                     Debug.Log("Jump!");
-                    Jump(target);
+                    //Jump(target);
                 }
                 //else
                 {

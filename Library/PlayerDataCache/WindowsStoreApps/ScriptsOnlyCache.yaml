@@ -3,6 +3,7 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - GazeGestureManager
     - PlayerMovement
+    - SkeletonEditor.PlayerController
     - Tile
     - TurnManager
     - WorldCursor
@@ -35,9 +36,23 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
     - Class: 65
       Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
+    - Class: 90
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
       Script: {instanceID: 0}
     - Class: 102
       Script: {instanceID: 0}
@@ -45,33 +60,43 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 108
       Script: {instanceID: 0}
+    - Class: 111
+      Script: {instanceID: 0}
     - Class: 114
       Script: {instanceID: 9742}
+    - Class: 114
+      Script: {instanceID: 9882}
     - Class: 114
       Script: {instanceID: 9910}
     - Class: 114
       Script: {instanceID: 10142}
     - Class: 114
-      Script: {instanceID: 10316}
+      Script: {instanceID: 10318}
     - Class: 114
-      Script: {instanceID: 10364}
+      Script: {instanceID: 10366}
     - Class: 114
-      Script: {instanceID: 10554}
+      Script: {instanceID: 10556}
     - Class: 114
-      Script: {instanceID: 11080}
+      Script: {instanceID: 11082}
     - Class: 114
-      Script: {instanceID: 11212}
+      Script: {instanceID: 11214}
     - Class: 114
-      Script: {instanceID: 11218}
+      Script: {instanceID: 11220}
     - Class: 114
-      Script: {instanceID: 11604}
+      Script: {instanceID: 11606}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
       Script: {instanceID: 0}
     - Class: 136
       Script: {instanceID: 0}
+    - Class: 137
+      Script: {instanceID: 0}
+    - Class: 143
+      Script: {instanceID: 0}
     - Class: 157
+      Script: {instanceID: 0}
+    - Class: 193
       Script: {instanceID: 0}
     - Class: 222
       Script: {instanceID: 0}
@@ -308,6 +333,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SubMeshUI
+  - hash:
+      serializedVersion: 2
+      Hash: f95636be0ca3ef3c63c63a9b2ac694dd
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TurnManagerRedo
   - hash:
       serializedVersion: 2
       Hash: 5ab533713adae59372fb3e10a585c186
@@ -833,4 +864,4 @@ ScriptsOnlyBuild:
   platform: 21
   scenePathNames:
   - Assets/Scenes/Main.unity
-  playerPath: H:/Unity/CS_428_Project_3/Builds/Test
+  playerPath: H:/Unity/CS_428_Project_3/Builds/Ver_0.1.0
