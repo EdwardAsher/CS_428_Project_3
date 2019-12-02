@@ -243,7 +243,11 @@ public class GridMovement : MonoBehaviour
             }
             else
             {
+                //Vector3 temp = transform.position;
                 transform.position = target;
+                //transform.position.y += 0.05;
+                //temp.y += 0.05f;
+                //transform.position = temp;
                 path.Pop();
                 //transform.rotation = rotation;
             }
@@ -258,6 +262,11 @@ public class GridMovement : MonoBehaviour
 );*/
             RemoveSelectableTiles();
             moving = false;
+            /*Vector3 temp = transform.position;
+            //transform.position = target;
+            //transform.position.y += 0.05;
+            temp.y += 0.05f;
+            transform.position = temp;*/
 
             //Add actions
             if (target != null)
@@ -498,6 +507,7 @@ public class GridMovement : MonoBehaviour
 
     public void Attack(GameObject unit)
     {
+        this.gameObject.GetComponent<AudioSource>().Play();
         unit.SetActive(false);
         TurnManager.RemoveUnit(unit.GetComponent<GridMovement>());
     }

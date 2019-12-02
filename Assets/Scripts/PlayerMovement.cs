@@ -17,6 +17,7 @@ public class PlayerMovement : GridMovement
     public GameObject cube;
     public Text debug;
     private int i = 0;
+    private bool turnStart = false;
 
     bool targetValidated = false;
     // Start is called before the first frame update
@@ -89,10 +90,17 @@ public class PlayerMovement : GridMovement
         if (waiting)
         {
             Quaternion toQuat = Camera.main.transform.localRotation;
+            //Quaternion toQuat = cube.transform.parent.rotation;
+            //if (this.gameObject.tag == "NPC")
+            //{
+                toQuat.y += 0.90f;
+            //}
+            
             toQuat.x = 0;
             toQuat.z = 0;
             cube.SetActive(true);
-            cube.transform.parent.rotation = toQuat;
+            //cube.transform.parent.rotation = toQuat;
+            cube.transform.rotation = toQuat;
             CheckMouse();
             recognizer.StartCapturingGestures();
             CheckGesture();
@@ -107,6 +115,16 @@ public class PlayerMovement : GridMovement
         }
         if (!moving)
         {
+            if (turnStart == false)
+            {
+                turnStart = true;
+                Vector3 temp = transform.position;
+                //transform.position = target;
+                //transform.position.y += 0.05;
+                temp.y += 0.05f;
+                transform.position = temp;
+            }
+            
             FindSelectableTiles();
             //Comment CheckMouse out if running on HoloLens
             CheckMouse();
@@ -225,6 +243,7 @@ public class PlayerMovement : GridMovement
                     //    MovetoTile(t);
                     //}
                     decided = true;
+                    turnStart = false;
                     //decided = true;
                 }
             }
@@ -236,6 +255,7 @@ public class PlayerMovement : GridMovement
         Debug.Log("testing");
         yield return new WaitUntil(() => ValidTarget(false));
         decided = true;
+        turnStart = false;
     }
 
     bool ValidTarget(bool gesture)
@@ -414,11 +434,13 @@ public class PlayerMovement : GridMovement
         
         yield return new WaitUntil(() => targetValidated);
         decided = true;
+        turnStart = false;
     }
 
     void Wait()
     {
         decided = true;
+        turnStart = false;
     }
         //}
     //}

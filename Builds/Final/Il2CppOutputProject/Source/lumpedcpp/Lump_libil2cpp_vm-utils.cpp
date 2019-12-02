@@ -1,0 +1,6 @@
+#include "il2cpp-config.h"
+#include "Z:\Unity\CS_428_Project_3\Builds\Final\Il2CppOutputProject\IL2CPP\libil2cpp\vm-utils\BlobReader.cpp"
+#include "Z:\Unity\CS_428_Project_3\Builds\Final\Il2CppOutputProject\IL2CPP\libil2cpp\vm-utils\Debugger.cpp"
+#include "Z:\Unity\CS_428_Project_3\Builds\Final\Il2CppOutputProject\IL2CPP\libil2cpp\vm-utils\NativeDelegateMethodCache.cpp"
+#include "Z:\Unity\CS_428_Project_3\Builds\Final\Il2CppOutputProject\IL2CPP\libil2cpp\vm-utils\NativeSymbol.cpp"
+#include "Z:\Unity\CS_428_Project_3\Builds\Final\Il2CppOutputProject\IL2CPP\libil2cpp\vm-utils\VmStringUtils.cpp"

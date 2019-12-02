@@ -864,4 +864,4 @@ ScriptsOnlyBuild:
   platform: 21
   scenePathNames:
   - Assets/Scenes/Main.unity
-  playerPath: H:/Unity/CS_428_Project_3/Builds/Ver_0.1.0
+  playerPath: Z:/Unity/CS_428_Project_3/Builds/Final
